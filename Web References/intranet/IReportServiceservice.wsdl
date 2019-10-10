@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.borland.com/namespaces/Types" name="IReportServiceservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.borland.com/namespaces/Types">
+      <xs:complexType name="TStringDynArray">
+        <xs:complexContent mixed="false">
+          <xs:restriction base="soapenc:Array">
+            <xs:sequence />
+            <xs:attribute xmlns:n1="http://schemas.xmlsoap.org/wsdl/" n1:arrayType="xs:string[]" ref="soapenc:arrayType" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="MergePDFs0Request">
+    <part name="pdf1" type="xs:base64Binary" />
+    <part name="pdf2" type="xs:base64Binary" />
+  </message>
+  <message name="MergePDFs0Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetPDFStream1Request">
+    <part name="ReportId" type="xs:string" />
+    <part name="Parameters" type="xs:string" />
+  </message>
+  <message name="GetPDFStream1Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetPDFStreamOrderBy2Request">
+    <part name="ReportId" type="xs:string" />
+    <part name="Parameters" type="xs:string" />
+    <part name="OrderBy" type="xs:string" />
+  </message>
+  <message name="GetPDFStreamOrderBy2Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetCombinedPDFStream3Request">
+    <part name="ReportId" type="ns1:TStringDynArray" />
+    <part name="Parameters" type="ns1:TStringDynArray" />
+    <part name="OrderBy" type="ns1:TStringDynArray" />
+  </message>
+  <message name="GetCombinedPDFStream3Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetPDFStreamFromXML4Request">
+    <part name="ReportId" type="xs:string" />
+    <part name="XMLData" type="xs:string" />
+  </message>
+  <message name="GetPDFStreamFromXML4Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetTIFFStream5Request">
+    <part name="ReportId" type="xs:string" />
+    <part name="Parameters" type="xs:string" />
+  </message>
+  <message name="GetTIFFStream5Response">
+    <part name="return" type="xs:base64Binary" />
+  </message>
+  <message name="GetQueryForReport6Request">
+    <part name="ReportId" type="xs:string" />
+    <part name="Parameters" type="xs:string" />
+    <part name="OrderBy" type="xs:string" />
+  </message>
+  <message name="GetQueryForReport6Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="CreateTempFile7Request" />
+  <message name="CreateTempFile7Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="Debug8Request">
+    <part name="Steps" type="xs:int" />
+  </message>
+  <message name="Debug8Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <portType name="IReportService">
+    <operation name="MergePDFs">
+      <input message="tns:MergePDFs0Request" />
+      <output message="tns:MergePDFs0Response" />
+    </operation>
+    <operation name="GetPDFStream">
+      <input message="tns:GetPDFStream1Request" />
+      <output message="tns:GetPDFStream1Response" />
+    </operation>
+    <operation name="GetPDFStreamOrderBy">
+      <input message="tns:GetPDFStreamOrderBy2Request" />
+      <output message="tns:GetPDFStreamOrderBy2Response" />
+    </operation>
+    <operation name="GetCombinedPDFStream">
+      <input message="tns:GetCombinedPDFStream3Request" />
+      <output message="tns:GetCombinedPDFStream3Response" />
+    </operation>
+    <operation name="GetPDFStreamFromXML">
+      <input message="tns:GetPDFStreamFromXML4Request" />
+      <output message="tns:GetPDFStreamFromXML4Response" />
+    </operation>
+    <operation name="GetTIFFStream">
+      <input message="tns:GetTIFFStream5Request" />
+      <output message="tns:GetTIFFStream5Response" />
+    </operation>
+    <operation name="GetQueryForReport">
+      <input message="tns:GetQueryForReport6Request" />
+      <output message="tns:GetQueryForReport6Response" />
+    </operation>
+    <operation name="CreateTempFile">
+      <input message="tns:CreateTempFile7Request" />
+      <output message="tns:CreateTempFile7Response" />
+    </operation>
+    <operation name="Debug">
+      <input message="tns:Debug8Request" />
+      <output message="tns:Debug8Response" />
+    </operation>
+  </portType>
+  <binding name="IReportServicebinding" type="tns:IReportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="MergePDFs">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#MergePDFs" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetPDFStream">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetPDFStream" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetPDFStreamOrderBy">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetPDFStreamOrderBy" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetCombinedPDFStream">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetCombinedPDFStream" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetPDFStreamFromXML">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetPDFStreamFromXML" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetTIFFStream">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetTIFFStream" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetQueryForReport">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#GetQueryForReport" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CreateTempFile">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#CreateTempFile" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Debug">
+      <soap:operation soapAction="urn:IReportServiceIntf-IReportService#Debug" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:IReportServiceIntf-IReportService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IReportServiceservice">
+    <port name="IReportServicePort" binding="tns:IReportServicebinding">
+      <soap:address location="http://intranet/reportservice/rptsvc.dll/soap/IReportService" />
+    </port>
+  </service>
+</definitions>
