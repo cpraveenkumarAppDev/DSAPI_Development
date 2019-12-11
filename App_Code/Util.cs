@@ -70,15 +70,13 @@ namespace api.App_Code
                 _FileStream.Close();
                 return _FileName;
             }
-            catch (Exception _Exception)
+            catch //(Exception _Exception)
             {
                 return "tmp: " + tmp;
 
                 // Error
                 //Console.WriteLine("Exception caught in process: {0}", _Exception.ToString());
             }
-            // error occured, return nothing
-            return "";
         }
 
         public bool MergeFiles(string file1, string file2, string newFile)
@@ -143,7 +141,7 @@ namespace api.App_Code
                 if (httpWebResponse.StatusCode == HttpStatusCode.OK)
                     AuthToken = httpWebRequest.GetResponse().Headers.Get("Set-Cookie").ToString();
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //Handle any exceptions here
             }
@@ -202,7 +200,7 @@ namespace api.App_Code
                 Result.token = strToken;
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //Handle any exceptions here
                 Result.errorCode = dsErrorCodes.ecUnableToLock;
@@ -256,7 +254,7 @@ namespace api.App_Code
                 }
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //Handle any exceptions here
             }
@@ -335,7 +333,7 @@ namespace api.App_Code
                     XMLDoc.Load(httpWebResponse.GetResponseStream());
                 }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //Handle any exceptions here
             }
@@ -355,7 +353,7 @@ namespace api.App_Code
         {
             //string strHandle = "WellRegDoc-" + DSHandle;
             //string strDocType = "WellRegDoc";
-            bool Result = true;
+            //bool Result = true;
             string DocuShareURL = ConfigurationManager.AppSettings["dsURL"];
             string FileName = ByteArrayToFile(_ByteArray);
             string boundary = generateBoundary();
@@ -425,11 +423,11 @@ namespace api.App_Code
                 WriteLog("complete calling uploadExistingDocument for DocType = " + strDocType); //jsh 04/2015
             }
 
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //Handle any exceptions here
                 WriteLog("Exceptioncalling uploadExistingDocument for DocType = " + strDocType);//jsh 04/2015
-                Result = false;
+                //Result = false;
             }
             finally
             {
@@ -486,7 +484,7 @@ namespace api.App_Code
                 conn.Dispose();
                 return true;
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 return false;
             }

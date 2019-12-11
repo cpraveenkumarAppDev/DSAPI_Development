@@ -59,6 +59,11 @@ namespace api.Controllers
             }
             return fileInfo;
         }
+        [HttpGet]
+        public string HelloWorld()
+        {
+            return "Hell world";
+        }
 
         private string getMetadata(Scan json, string dataKey)
         {
@@ -248,7 +253,7 @@ namespace api.Controllers
             try
             {
 
-                string DocType = "/WellRegDoc";
+                string DocType = "/WellRegDoc";//why the forward slash?
                 //upload as new document
                 utils.WriteLog("--------------  Loading OriginalFile");
                 string originalFilename = utils.ByteArrayToFile(myData.pdf);
@@ -256,7 +261,7 @@ namespace api.Controllers
                 utils.WriteLog("--------------  Creating Banner Ron2: " + bannerNotes);
                 //byte[] splitterFile = utils.rptSvc.GetPDFStream("2643", "Message='Original upload for Registry: 55-'"+ getMetadata(myData, "WellId") + "';ReceivedDate='"+DateTime.Now.ToShortDateString()+"'");
                 byte[] splitterFile =
-                    utils.rptSvc.GetPDFStream("2643",
+                    utils.rptSvc.GetPDFStream("3590",
                                               "Message='Original upload for Registry: " +
                                               getMetadata(myData, "WellId") + Environment.NewLine + bannerNotes +
                                               " ';ReceivedDate='" + DateTime.Now.ToShortDateString() + "'");
@@ -306,7 +311,7 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        [ActionName("ListByLocation")] //api call http://localhost:2349/api/dstools/Location?location=blablabla
+        [ActionName("ListByLocation")] //api call http://localhost:52183/api/dstools/Location?location=blablabla
         public List<WellRegDoc> Location(string location)
         {
             return findWellsByLocation(location);

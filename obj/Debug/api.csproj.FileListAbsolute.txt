@@ -16,3 +16,24 @@ D:\Development\VisualStudio2017Apps\api\obj\Debug\api.csproj.CoreCompileInputs.c
 D:\Development\VisualStudio2017Apps\api\obj\Debug\api.dll
 D:\Development\VisualStudio2017Apps\api\obj\Debug\api.pdb
 D:\Development\VisualStudio2017Apps\api\obj\Debug\api.csprojResolveAssemblyReference.cache
+C:\Development\VisualStudio 2017\DSAPI\bin\api.dll.config
+C:\Development\VisualStudio 2017\DSAPI\bin\api.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\api.pdb
+C:\Development\VisualStudio 2017\DSAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\Newtonsoft.Json.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\Oracle.DataAccess.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Net.Http.Formatting.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.WebHost.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\System.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\Newtonsoft.Json.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Net.Http.Formatting.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.WebHost.xml
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csprojAssemblyReference.cache
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csproj.CoreCompileInputs.cache
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csproj.CopyComplete
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.dll
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.pdb
