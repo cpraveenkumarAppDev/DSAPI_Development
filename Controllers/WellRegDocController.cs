@@ -98,7 +98,6 @@ namespace api.Controllers
                 }
             return wellList;
 
-
         }
 
         private string updateMetada(string strDocHandle, Scan myData)
@@ -259,22 +258,14 @@ namespace api.Controllers
                 string originalFilename = utils.ByteArrayToFile(myData.pdf);
                 string bannerNotes = getMetadata(myData, "BannerNotes");
                 utils.WriteLog("--------------  Creating Banner Ron2: " + bannerNotes);
-                //byte[] splitterFile = utils.rptSvc.GetPDFStream("2643", "Message='Original upload for Registry: 55-'"+ getMetadata(myData, "WellId") + "';ReceivedDate='"+DateTime.Now.ToShortDateString()+"'");
-                byte[] splitterFile =
-                    utils.rptSvc.GetPDFStream("3590",
-                                              "Message='Original upload for Registry: " +
-                                              getMetadata(myData, "WellId") + Environment.NewLine + bannerNotes +
-                                              " ';ReceivedDate='" + DateTime.Now.ToShortDateString() + "'");
-                string splitterFileName = utils.ByteArrayToFile(splitterFile);
-                //Combine banner with new pages
-                string combinedFileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".pdf";
-                utils.MergeFiles(splitterFileName, originalFilename, combinedFileName);
-                byte[] combined = File.ReadAllBytes(combinedFileName);
-                File.Delete(originalFilename);
-                File.Delete(splitterFileName);
-                File.Delete(combinedFileName);
 
-                XmlDocument XMLDoc = utils.uploadNewDocument(combined, "Collection-18345" + "\\" + DocType, getMetadata(myData, "WellId"));
+                //moved reportbuilder.getpdfstream call to client programs 11/27/19 ian
+
+                File.Delete(originalFilename);
+
+                var wellId = getMetadata(myData, "WellId");
+
+                XmlDocument XMLDoc = utils.uploadNewDocument(myData.pdf, "Collection-18345" + "\\" + DocType, wellId);
                 //find document handle
                 string strDSRef = "";
                 XmlNode node = XMLDoc.SelectSingleNode("/document/handle");

@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DocushareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DSObject_table">
+          <Key>
+            <PropertyRef Name="handle_id" />
+          </Key>
+          <Property Name="handle_class" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="handle_index" Type="int" Nullable="false" />
+          <Property Name="handle_id" Type="bigint" Nullable="false" />
+          <Property Name="Object_isDeleted" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Object_isSystemObj" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="User_first_name" Type="nvarchar" MaxLength="64" />
+          <Property Name="User_isActive" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Remote_DN" Type="nvarchar" MaxLength="256" />
+          <Property Name="User_changePasswordAtLogin" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="User_failedLoginCount" Type="int" />
+          <Property Name="User_passwordExpiration" Type="datetime" />
+          <Property Name="User_userLevel" Type="nvarchar" MaxLength="124" />
+          <Property Name="Space_spaceName" Type="nvarchar" MaxLength="64" />
+          <Property Name="domain_name" Type="nvarchar" MaxLength="128" />
+          <Property Name="User_username" Type="nvarchar" MaxLength="128" />
+          <Property Name="User_last_name" Type="nvarchar" MaxLength="64" />
+          <Property Name="PlanningDoc_City" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningDoc_County" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningDoc_ContactName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlanningDoc_ContactPhone" Type="nvarchar" MaxLength="15" />
+          <Property Name="PlanningDoc_ContactEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningDoc_max_versions" Type="int" />
+          <Property Name="PlanningDoc_DeadlineDate" Type="datetime" />
+          <Property Name="PlanningDoc_AdditionalInfo" Type="nvarchar" MaxLength="500" />
+          <Property Name="PlanningDoc_ADWRComments" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_ReviewComplete" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_ReceiveDate" Type="datetime" />
+          <Property Name="PlanningDoc_AMA_INA" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningD_highest_version_used" Type="int" />
+          <Property Name="PlanningDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="PlanningDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="PlanningDoc_Status" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="PlanningDoc_abstract" Type="ntext" />
+          <Property Name="PlanningDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="PlanningDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Plann_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="PlanningDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_AgencyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningDoc_AgencyType" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningDoc_ProjectTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlanningDoc_FedID" Type="nvarchar" MaxLength="25" />
+          <Property Name="PlanningDoc_ProjectStartDate" Type="datetime" />
+          <Property Name="PlanningDoc_Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="SWDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SWDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="SWDoc_abstract" Type="ntext" />
+          <Property Name="SWDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="SWDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="SWDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="SWDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SWDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SWDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SWDoc_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SWDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="SWDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SWDoc_AppNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SWDoc_Misc" Type="nvarchar" MaxLength="50" />
+          <Property Name="SWDoc_max_versions" Type="int" />
+          <Property Name="SWDoc_highest_version_used" Type="int" />
+          <Property Name="SWDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="SWDoc_DecisionOrd" Type="nvarchar" MaxLength="50" />
+          <Property Name="SWDoc_Date" Type="datetime" />
+          <Property Name="DisclosureDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Discl_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="DisclosureDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_DocID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisclosureDoc_DocDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="DisclosureDoc_DocType" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_Recipient" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_DisclosingParty" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_SubmittalDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="DisclosureDoc_Subject1" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_Subject2" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_Subject3" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_Comments" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_Pages" Type="nvarchar" MaxLength="10" />
+          <Property Name="DisclosureDoc_DocTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="DisclosureDoc_DocAuthor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Disclosur_highest_version_used" Type="int" />
+          <Property Name="DisclosureDoc_max_versions" Type="int" />
+          <Property Name="DisclosureDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="DisclosureD_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="DisclosureDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="DisclosureDoc_abstract" Type="ntext" />
+          <Property Name="DisclosureDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="AdjudDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_DocDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdjudDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="AdjudDoc_abstract" Type="ntext" />
+          <Property Name="AdjudDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="AdjudDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="Adjud_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="AdjudDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="AdjudDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="AdjudDoc_DocNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdjudDoc_highest_version_used" Type="int" />
+          <Property Name="AdjudDoc_max_versions" Type="int" />
+          <Property Name="Version_revision_comments" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Version_version_number" Type="int" />
+          <Property Name="DamSafetyDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="DamSafetyDoc_abstract" Type="ntext" />
+          <Property Name="DamSafetyDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="DamSa_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DamSafetyDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="DamSafetyDoc_StateID" Type="nvarchar" MaxLength="24" />
+          <Property Name="DamSafetyDoc_NatID" Type="nvarchar" MaxLength="24" />
+          <Property Name="DamSafetyDoc_DocTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="DamSafetyDoc_max_versions" Type="int" />
+          <Property Name="DamSafetyDoc_DamName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DamSafetyDoc_Jurisdictional" Type="nvarchar" MaxLength="24" />
+          <Property Name="DamSafetyDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="DamSafetyDo_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="DamSafetyDoc_County" Type="nvarchar" MaxLength="124" />
+          <Property Name="DamSafety_highest_version_used" Type="int" />
+          <Property Name="DamSafetyDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="WellRegDoc_Location" Type="nvarchar" MaxLength="24" />
+          <Property Name="WellRegDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="WellRegDo_highest_version_used" Type="int" />
+          <Property Name="WellRegDoc_max_versions" Type="int" />
+          <Property Name="WellRegDoc_abstract" Type="ntext" />
+          <Property Name="WellRegDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="WellRegDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="WellR_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="WellRegDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="WellRegDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="WellRegDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_RegID" Type="nvarchar" MaxLength="24" />
+          <Property Name="WellRegDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Object_webdav_title" Type="nvarchar" MaxLength="356" />
+          <Property Name="Object_summary" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Object_isRootElement" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Object_isRecord" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Object_readyForDeclare" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Object_keywords" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Object_create_date" Type="datetime" />
+          <Property Name="Object_modified_date" Type="datetime" />
+          <Property Name="Object_Locale" Type="nvarchar" MaxLength="32" />
+          <Property Name="Object_space" Type="nvarchar" MaxLength="64" />
+          <Property Name="Object_description" Type="ntext" />
+          <Property Name="Object_title" Type="nvarchar" MaxLength="256" />
+          <Property Name="SOCDoc_max_versions" Type="int" />
+          <Property Name="SOCDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="SOCDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="SOCDoc_abstract" Type="ntext" />
+          <Property Name="SOCDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="SOCDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SOCDo_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="SOCDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_FileNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOCDoc_Misc2" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOCDoc_WatershedCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOCDoc_Misc" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOCDoc_highest_version_used" Type="int" />
+          <Property Name="SOCDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="Document_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="Well35Doc_abstract" Type="ntext" />
+          <Property Name="Well35Doc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="Well35Doc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Well3_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="Well35Doc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Well35Doc_New" Type="nvarchar" MaxLength="50" />
+          <Property Name="Well35Doc_Old" Type="nvarchar" MaxLength="50" />
+          <Property Name="Well35Doc_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Well35Doc_Box" Type="nvarchar" MaxLength="50" />
+          <Property Name="Well35Doc_CD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Well35Doc_highest_version_used" Type="int" />
+          <Property Name="Well35Doc_max_versions" Type="int" />
+          <Property Name="Well35Doc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="Well35Doc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Document_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Document_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Document_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Docum_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Document_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="Rendition_rendition_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="content_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="Document_max_versions" Type="int" />
+          <Property Name="Document_highest_version_used" Type="int" />
+          <Property Name="RechargeDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="RechargeDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Recha_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="RechargeDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_PCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="RechargeDoc_Year" Type="nvarchar" MaxLength="4" />
+          <Property Name="RechargeDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="RechargeDoc_Misc" Type="nvarchar" MaxLength="75" />
+          <Property Name="RechargeDoc_Owner" Type="nvarchar" MaxLength="250" />
+          <Property Name="RechargeD_highest_version_used" Type="int" />
+          <Property Name="RechargeDoc_max_versions" Type="int" />
+          <Property Name="RechargeDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="RechargeDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="RechargeDoc_FacilityName" Type="nvarchar" MaxLength="150" />
+          <Property Name="RechargeDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="RechargeDoc_abstract" Type="ntext" />
+          <Property Name="RechargeDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_abstract" Type="ntext" />
+          <Property Name="CWSDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="CWSDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CWSDo_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="CWSDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_Misc" Type="nvarchar" MaxLength="50" />
+          <Property Name="CWSDoc_SystemName" Type="nvarchar" MaxLength="75" />
+          <Property Name="CWSDoc_PCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="CWSDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="CWSDoc_ARYear" Type="nvarchar" MaxLength="4" />
+          <Property Name="CWSDoc_highest_version_used" Type="int" />
+          <Property Name="CWSDoc_max_versions" Type="int" />
+          <Property Name="CWSDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="CWSDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="CWSDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="Rendition_generated" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="GWDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="GWDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="GWDoc_abstract" Type="ntext" />
+          <Property Name="GWDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="GWDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="GWDoc_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="GWDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="GWDoc_PCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="GWDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="GWDoc_Year" Type="nvarchar" MaxLength="4" />
+          <Property Name="GWDoc_AMA" Type="nvarchar" MaxLength="50" />
+          <Property Name="GWDoc_Subbasin" Type="nvarchar" MaxLength="50" />
+          <Property Name="GWDoc_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="GWDoc_IrrDistName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GWDoc_Misc" Type="nvarchar" MaxLength="75" />
+          <Property Name="GWDoc_Owner" Type="nvarchar" MaxLength="250" />
+          <Property Name="GWDoc_highest_version_used" Type="int" />
+          <Property Name="GWDoc_max_versions" Type="int" />
+          <Property Name="PlanningCollection_FedID" Type="nvarchar" MaxLength="25" />
+          <Property Name="PlanningColle_ProjectStartDate" Type="datetime" />
+          <Property Name="PlanningCollection_Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlanningCollection_City" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningCollection_County" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningCollection_ContactName" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlanningCollectio_ContactPhone" Type="nvarchar" MaxLength="15" />
+          <Property Name="PlanningCollectio_ContactEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningCollectio_DeadlineDate" Type="datetime" />
+          <Property Name="PlanningCollect_AdditionalInfo" Type="nvarchar" MaxLength="200" />
+          <Property Name="PlanningCollectio_ADWRComments" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningCollect_ReviewComplete" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_ReceiveDate" Type="datetime" />
+          <Property Name="PlanningCollection_Status" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollection_AMA_INA" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollection_bg_image" Type="nvarchar" MaxLength="256" />
+          <Property Name="PlanningCollection_spamControl" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollection_logo" Type="nvarchar" MaxLength="256" />
+          <Property Name="PlanningCollectio_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_emailAlias" Type="nvarchar" MaxLength="128" />
+          <Property Name="PlanningCollection_view_format" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollec_attachmentsOnly" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_sort_order" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollection_AgencyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanningCollection_AgencyType" Type="nvarchar" MaxLength="124" />
+          <Property Name="PlanningCollectio_ProjectTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="AAWSDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_PCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="AAWSDoc_ProjectName" Type="nvarchar" MaxLength="255" />
+          <Property Name="AAWSDoc_Misc" Type="nvarchar" MaxLength="75" />
+          <Property Name="AAWSDoc_Status" Type="nvarchar" MaxLength="124" />
+          <Property Name="AAWSDoc_ARYear" Type="nvarchar" MaxLength="4" />
+          <Property Name="AAWSDoc_DocType" Type="nvarchar" MaxLength="124" />
+          <Property Name="AAWSDoc_highest_version_used" Type="int" />
+          <Property Name="AAWSDoc_max_versions" Type="int" />
+          <Property Name="AAWSDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="AAWSDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="AAWSDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="AAWSDoc_abstract" Type="ntext" />
+          <Property Name="AAWSDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="AAWSDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="AAWSD_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="RecorderChart_SiteID" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecorderChart_LocalID" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecorderChart_Cadastral" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecorderChart_DateDownload" Type="nvarchar" MaxLength="24" />
+          <Property Name="RecorderC_highest_version_used" Type="int" />
+          <Property Name="RecorderChart_max_versions" Type="int" />
+          <Property Name="RecorderChart_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="RecorderCha_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="RecorderChart_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="RecorderChart_abstract" Type="ntext" />
+          <Property Name="RecorderChart_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="RecorderChart_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Recor_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="RecorderChart_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_WellName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AWRDoc_highest_version_used" Type="int" />
+          <Property Name="AWRDoc_max_versions" Type="int" />
+          <Property Name="AWRDoc_canAddVersions" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_author" Type="nvarchar" MaxLength="128" />
+          <Property Name="AWRDoc_original_file_name" Type="nvarchar" MaxLength="256" />
+          <Property Name="AWRDoc_content_type" Type="nvarchar" MaxLength="512" />
+          <Property Name="AWRDoc_abstract" Type="ntext" />
+          <Property Name="AWRDoc_cfCopyID" Type="nvarchar" MaxLength="256" />
+          <Property Name="AWRDoc_add_as_draft" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_isPlaceholder" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_cfSpecialWords" Type="nvarchar" MaxLength="2000" />
+          <Property Name="AWRDoc_size" Type="numeric" Precision="26" Scale="7" />
+          <Property Name="AWRDo_autoMovePreferredVersion" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_isInteract" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_ProposedWaterRight" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_OwnerWaterRight" Type="nvarchar" MaxLength="35" />
+          <Property Name="AWRDoc_landowner" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_SOC_no" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_SOC_name" Type="nvarchar" MaxLength="35" />
+          <Property Name="AWRDoc_LeasePermit" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_BasisRight" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_BeneficialUse" Type="nvarchar" MaxLength="124" />
+          <Property Name="AWRDoc_PriorityDate" Type="datetime" />
+          <Property Name="AWRDoc_Quantity" Type="int" />
+          <Property Name="AWRDoc_PlaaceUse" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_PointDiversion" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_SourceWater" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_FacilityName" Type="nvarchar" MaxLength="24" />
+          <Property Name="AWRDoc_watershed" Type="nvarchar" MaxLength="124" />
+        </EntityType>
+        <EntityContainer Name="DocushareModelStoreContainer">
+          <EntitySet Name="DSObject_table" EntityType="Self.DSObject_table" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocushareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DSObject_table">
+          <Key>
+            <PropertyRef Name="handle_id" />
+          </Key>
+          <Property Name="handle_class" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="handle_index" Type="Int32" Nullable="false" />
+          <Property Name="handle_id" Type="Int64" Nullable="false" />
+          <Property Name="Object_isDeleted" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Object_isSystemObj" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="User_first_name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="User_isActive" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Remote_DN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="User_changePasswordAtLogin" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="User_failedLoginCount" Type="Int32" />
+          <Property Name="User_passwordExpiration" Type="DateTime" Precision="3" />
+          <Property Name="User_userLevel" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="Space_spaceName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="domain_name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="User_username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="User_last_name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ContactName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ContactPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_max_versions" Type="Int32" />
+          <Property Name="PlanningDoc_DeadlineDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningDoc_AdditionalInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ADWRComments" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_ReviewComplete" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_ReceiveDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningDoc_AMA_INA" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningD_highest_version_used" Type="Int32" />
+          <Property Name="PlanningDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_Status" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Plann_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="PlanningDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningDoc_AgencyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_AgencyType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ProjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_FedID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningDoc_ProjectStartDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningDoc_Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SWDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SWDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SWDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SWDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="SWDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SWDoc_AppNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_Misc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_max_versions" Type="Int32" />
+          <Property Name="SWDoc_highest_version_used" Type="Int32" />
+          <Property Name="SWDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_DecisionOrd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SWDoc_Date" Type="DateTime" Precision="3" />
+          <Property Name="DisclosureDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Discl_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="DisclosureDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_DocID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_DocDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_DocType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Recipient" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_DisclosingParty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_SubmittalDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Subject1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Subject2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Subject3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_Pages" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_DocTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_DocAuthor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Disclosur_highest_version_used" Type="Int32" />
+          <Property Name="DisclosureDoc_max_versions" Type="Int32" />
+          <Property Name="DisclosureDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureD_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisclosureDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DisclosureDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_DocDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Adjud_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AdjudDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="AdjudDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_DocNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdjudDoc_highest_version_used" Type="Int32" />
+          <Property Name="AdjudDoc_max_versions" Type="Int32" />
+          <Property Name="Version_revision_comments" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Version_version_number" Type="Int32" />
+          <Property Name="DamSafetyDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DamSa_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="DamSafetyDoc_StateID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_NatID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_DocTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_max_versions" Type="Int32" />
+          <Property Name="DamSafetyDoc_DamName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_Jurisdictional" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDo_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafetyDoc_County" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="DamSafety_highest_version_used" Type="Int32" />
+          <Property Name="DamSafetyDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="DamSafetyDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_Location" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDo_highest_version_used" Type="Int32" />
+          <Property Name="WellRegDoc_max_versions" Type="Int32" />
+          <Property Name="WellRegDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="WellR_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="WellRegDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="WellRegDoc_RegID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="WellRegDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Object_webdav_title" Type="String" MaxLength="356" FixedLength="false" Unicode="true" />
+          <Property Name="Object_summary" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Object_isRootElement" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Object_isRecord" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Object_readyForDeclare" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Object_keywords" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Object_create_date" Type="DateTime" Precision="3" />
+          <Property Name="Object_modified_date" Type="DateTime" Precision="3" />
+          <Property Name="Object_Locale" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Object_space" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Object_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Object_title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_max_versions" Type="Int32" />
+          <Property Name="SOCDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDo_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="SOCDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SOCDoc_FileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_Misc2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_WatershedCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_Misc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOCDoc_highest_version_used" Type="Int32" />
+          <Property Name="SOCDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Document_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Well3_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="Well35Doc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_New" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_Old" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_Box" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_CD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_highest_version_used" Type="Int32" />
+          <Property Name="Well35Doc_max_versions" Type="Int32" />
+          <Property Name="Well35Doc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Well35Doc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Well35Doc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Document_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Document_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Document_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Docum_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Document_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Rendition_rendition_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="content_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="Document_max_versions" Type="Int32" />
+          <Property Name="Document_highest_version_used" Type="Int32" />
+          <Property Name="RechargeDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Recha_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="RechargeDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_PCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_Year" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_Misc" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_Owner" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeD_highest_version_used" Type="Int32" />
+          <Property Name="RechargeDoc_max_versions" Type="Int32" />
+          <Property Name="RechargeDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RechargeDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_FacilityName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RechargeDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDo_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="CWSDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_Misc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_SystemName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_PCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_ARYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_highest_version_used" Type="Int32" />
+          <Property Name="CWSDoc_max_versions" Type="Int32" />
+          <Property Name="CWSDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CWSDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CWSDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Rendition_generated" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="GWDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="GWDoc_PCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_Year" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_AMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_Subbasin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_IrrDistName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_Misc" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_Owner" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GWDoc_highest_version_used" Type="Int32" />
+          <Property Name="GWDoc_max_versions" Type="Int32" />
+          <Property Name="PlanningCollection_FedID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningColle_ProjectStartDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningCollection_Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_ContactName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_ContactPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_DeadlineDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningCollect_AdditionalInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_ADWRComments" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningCollect_ReviewComplete" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_ReceiveDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanningCollection_Status" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_AMA_INA" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_bg_image" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_spamControl" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_logo" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_emailAlias" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_view_format" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollec_attachmentsOnly" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PlanningCollection_sort_order" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_AgencyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollection_AgencyType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningCollectio_ProjectTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_PCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_Misc" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_Status" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_ARYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_DocType" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_highest_version_used" Type="Int32" />
+          <Property Name="AAWSDoc_max_versions" Type="Int32" />
+          <Property Name="AAWSDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="AAWSD_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AAWSDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="RecorderChart_SiteID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_LocalID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_Cadastral" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_DateDownload" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderC_highest_version_used" Type="Int32" />
+          <Property Name="RecorderChart_max_versions" Type="Int32" />
+          <Property Name="RecorderChart_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderCha_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderChart_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Recor_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="RecorderChart_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="RecorderChart_WellName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_highest_version_used" Type="Int32" />
+          <Property Name="AWRDoc_max_versions" Type="Int32" />
+          <Property Name="AWRDoc_canAddVersions" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_author" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_original_file_name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_content_type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_cfCopyID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_add_as_draft" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_isPlaceholder" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_cfSpecialWords" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_size" Type="Decimal" Precision="26" Scale="7" />
+          <Property Name="AWRDo_autoMovePreferredVersion" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_isInteract" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="AWRDoc_ProposedWaterRight" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_OwnerWaterRight" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_landowner" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_SOC_no" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_SOC_name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_LeasePermit" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_BasisRight" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_BeneficialUse" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_PriorityDate" Type="DateTime" Precision="3" />
+          <Property Name="AWRDoc_Quantity" Type="Int32" />
+          <Property Name="AWRDoc_PlaaceUse" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_PointDiversion" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_SourceWater" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_FacilityName" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="AWRDoc_watershed" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DocushareEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DSObject_table" EntityType="Self.DSObject_table" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocushareModelStoreContainer" CdmEntityContainer="DocushareEntities1">
+          <EntitySetMapping Name="DSObject_table">
+            <EntityTypeMapping TypeName="DocushareModel.DSObject_table">
+              <MappingFragment StoreEntitySet="DSObject_table">
+                <ScalarProperty Name="handle_class" ColumnName="handle_class" />
+                <ScalarProperty Name="handle_index" ColumnName="handle_index" />
+                <ScalarProperty Name="handle_id" ColumnName="handle_id" />
+                <ScalarProperty Name="Object_isDeleted" ColumnName="Object_isDeleted" />
+                <ScalarProperty Name="Object_isSystemObj" ColumnName="Object_isSystemObj" />
+                <ScalarProperty Name="User_first_name" ColumnName="User_first_name" />
+                <ScalarProperty Name="User_isActive" ColumnName="User_isActive" />
+                <ScalarProperty Name="Remote_DN" ColumnName="Remote_DN" />
+                <ScalarProperty Name="User_changePasswordAtLogin" ColumnName="User_changePasswordAtLogin" />
+                <ScalarProperty Name="User_failedLoginCount" ColumnName="User_failedLoginCount" />
+                <ScalarProperty Name="User_passwordExpiration" ColumnName="User_passwordExpiration" />
+                <ScalarProperty Name="User_userLevel" ColumnName="User_userLevel" />
+                <ScalarProperty Name="Space_spaceName" ColumnName="Space_spaceName" />
+                <ScalarProperty Name="domain_name" ColumnName="domain_name" />
+                <ScalarProperty Name="User_username" ColumnName="User_username" />
+                <ScalarProperty Name="User_last_name" ColumnName="User_last_name" />
+                <ScalarProperty Name="PlanningDoc_City" ColumnName="PlanningDoc_City" />
+                <ScalarProperty Name="PlanningDoc_County" ColumnName="PlanningDoc_County" />
+                <ScalarProperty Name="PlanningDoc_ContactName" ColumnName="PlanningDoc_ContactName" />
+                <ScalarProperty Name="PlanningDoc_ContactPhone" ColumnName="PlanningDoc_ContactPhone" />
+                <ScalarProperty Name="PlanningDoc_ContactEmail" ColumnName="PlanningDoc_ContactEmail" />
+                <ScalarProperty Name="PlanningDoc_max_versions" ColumnName="PlanningDoc_max_versions" />
+                <ScalarProperty Name="PlanningDoc_DeadlineDate" ColumnName="PlanningDoc_DeadlineDate" />
+                <ScalarProperty Name="PlanningDoc_AdditionalInfo" ColumnName="PlanningDoc_AdditionalInfo" />
+                <ScalarProperty Name="PlanningDoc_ADWRComments" ColumnName="PlanningDoc_ADWRComments" />
+                <ScalarProperty Name="PlanningDoc_ReviewComplete" ColumnName="PlanningDoc_ReviewComplete" />
+                <ScalarProperty Name="PlanningDoc_ReceiveDate" ColumnName="PlanningDoc_ReceiveDate" />
+                <ScalarProperty Name="PlanningDoc_AMA_INA" ColumnName="PlanningDoc_AMA_INA" />
+                <ScalarProperty Name="PlanningD_highest_version_used" ColumnName="PlanningD_highest_version_used" />
+                <ScalarProperty Name="PlanningDoc_canAddVersions" ColumnName="PlanningDoc_canAddVersions" />
+                <ScalarProperty Name="PlanningDoc_author" ColumnName="PlanningDoc_author" />
+                <ScalarProperty Name="PlanningDoc_original_file_name" ColumnName="PlanningDoc_original_file_name" />
+                <ScalarProperty Name="PlanningDoc_Status" ColumnName="PlanningDoc_Status" />
+                <ScalarProperty Name="PlanningDoc_content_type" ColumnName="PlanningDoc_content_type" />
+                <ScalarProperty Name="PlanningDoc_abstract" ColumnName="PlanningDoc_abstract" />
+                <ScalarProperty Name="PlanningDoc_add_as_draft" ColumnName="PlanningDoc_add_as_draft" />
+                <ScalarProperty Name="PlanningDoc_cfCopyID" ColumnName="PlanningDoc_cfCopyID" />
+                <ScalarProperty Name="PlanningDoc_isPlaceholder" ColumnName="PlanningDoc_isPlaceholder" />
+                <ScalarProperty Name="PlanningDoc_cfSpecialWords" ColumnName="PlanningDoc_cfSpecialWords" />
+                <ScalarProperty Name="Plann_autoMovePreferredVersion" ColumnName="Plann_autoMovePreferredVersion" />
+                <ScalarProperty Name="PlanningDoc_size" ColumnName="PlanningDoc_size" />
+                <ScalarProperty Name="PlanningDoc_isInteract" ColumnName="PlanningDoc_isInteract" />
+                <ScalarProperty Name="PlanningDoc_AgencyName" ColumnName="PlanningDoc_AgencyName" />
+                <ScalarProperty Name="PlanningDoc_AgencyType" ColumnName="PlanningDoc_AgencyType" />
+                <ScalarProperty Name="PlanningDoc_ProjectTitle" ColumnName="PlanningDoc_ProjectTitle" />
+                <ScalarProperty Name="PlanningDoc_FedID" ColumnName="PlanningDoc_FedID" />
+                <ScalarProperty Name="PlanningDoc_ProjectStartDate" ColumnName="PlanningDoc_ProjectStartDate" />
+                <ScalarProperty Name="PlanningDoc_Location" ColumnName="PlanningDoc_Location" />
+                <ScalarProperty Name="SWDoc_canAddVersions" ColumnName="SWDoc_canAddVersions" />
+                <ScalarProperty Name="SWDoc_original_file_name" ColumnName="SWDoc_original_file_name" />
+                <ScalarProperty Name="SWDoc_abstract" ColumnName="SWDoc_abstract" />
+                <ScalarProperty Name="SWDoc_cfCopyID" ColumnName="SWDoc_cfCopyID" />
+                <ScalarProperty Name="SWDoc_author" ColumnName="SWDoc_author" />
+                <ScalarProperty Name="SWDoc_content_type" ColumnName="SWDoc_content_type" />
+                <ScalarProperty Name="SWDoc_add_as_draft" ColumnName="SWDoc_add_as_draft" />
+                <ScalarProperty Name="SWDoc_isPlaceholder" ColumnName="SWDoc_isPlaceholder" />
+                <ScalarProperty Name="SWDoc_cfSpecialWords" ColumnName="SWDoc_cfSpecialWords" />
+                <ScalarProperty Name="SWDoc_autoMovePreferredVersion" ColumnName="SWDoc_autoMovePreferredVersion" />
+                <ScalarProperty Name="SWDoc_size" ColumnName="SWDoc_size" />
+                <ScalarProperty Name="SWDoc_isInteract" ColumnName="SWDoc_isInteract" />
+                <ScalarProperty Name="SWDoc_AppNumber" ColumnName="SWDoc_AppNumber" />
+                <ScalarProperty Name="SWDoc_Misc" ColumnName="SWDoc_Misc" />
+                <ScalarProperty Name="SWDoc_max_versions" ColumnName="SWDoc_max_versions" />
+                <ScalarProperty Name="SWDoc_highest_version_used" ColumnName="SWDoc_highest_version_used" />
+                <ScalarProperty Name="SWDoc_DocType" ColumnName="SWDoc_DocType" />
+                <ScalarProperty Name="SWDoc_DecisionOrd" ColumnName="SWDoc_DecisionOrd" />
+                <ScalarProperty Name="SWDoc_Date" ColumnName="SWDoc_Date" />
+                <ScalarProperty Name="DisclosureDoc_isPlaceholder" ColumnName="DisclosureDoc_isPlaceholder" />
+                <ScalarProperty Name="DisclosureDoc_cfSpecialWords" ColumnName="DisclosureDoc_cfSpecialWords" />
+                <ScalarProperty Name="Discl_autoMovePreferredVersion" ColumnName="Discl_autoMovePreferredVersion" />
+                <ScalarProperty Name="DisclosureDoc_size" ColumnName="DisclosureDoc_size" />
+                <ScalarProperty Name="DisclosureDoc_isInteract" ColumnName="DisclosureDoc_isInteract" />
+                <ScalarProperty Name="DisclosureDoc_DocID" ColumnName="DisclosureDoc_DocID" />
+                <ScalarProperty Name="DisclosureDoc_DocDate" ColumnName="DisclosureDoc_DocDate" />
+                <ScalarProperty Name="DisclosureDoc_DocType" ColumnName="DisclosureDoc_DocType" />
+                <ScalarProperty Name="DisclosureDoc_Recipient" ColumnName="DisclosureDoc_Recipient" />
+                <ScalarProperty Name="DisclosureDoc_DisclosingParty" ColumnName="DisclosureDoc_DisclosingParty" />
+                <ScalarProperty Name="DisclosureDoc_SubmittalDate" ColumnName="DisclosureDoc_SubmittalDate" />
+                <ScalarProperty Name="DisclosureDoc_Subject1" ColumnName="DisclosureDoc_Subject1" />
+                <ScalarProperty Name="DisclosureDoc_Subject2" ColumnName="DisclosureDoc_Subject2" />
+                <ScalarProperty Name="DisclosureDoc_Subject3" ColumnName="DisclosureDoc_Subject3" />
+                <ScalarProperty Name="DisclosureDoc_Comments" ColumnName="DisclosureDoc_Comments" />
+                <ScalarProperty Name="DisclosureDoc_Pages" ColumnName="DisclosureDoc_Pages" />
+                <ScalarProperty Name="DisclosureDoc_DocTitle" ColumnName="DisclosureDoc_DocTitle" />
+                <ScalarProperty Name="DisclosureDoc_DocAuthor" ColumnName="DisclosureDoc_DocAuthor" />
+                <ScalarProperty Name="Disclosur_highest_version_used" ColumnName="Disclosur_highest_version_used" />
+                <ScalarProperty Name="DisclosureDoc_max_versions" ColumnName="DisclosureDoc_max_versions" />
+                <ScalarProperty Name="DisclosureDoc_canAddVersions" ColumnName="DisclosureDoc_canAddVersions" />
+                <ScalarProperty Name="DisclosureDoc_author" ColumnName="DisclosureDoc_author" />
+                <ScalarProperty Name="DisclosureD_original_file_name" ColumnName="DisclosureD_original_file_name" />
+                <ScalarProperty Name="DisclosureDoc_content_type" ColumnName="DisclosureDoc_content_type" />
+                <ScalarProperty Name="DisclosureDoc_abstract" ColumnName="DisclosureDoc_abstract" />
+                <ScalarProperty Name="DisclosureDoc_add_as_draft" ColumnName="DisclosureDoc_add_as_draft" />
+                <ScalarProperty Name="DisclosureDoc_cfCopyID" ColumnName="DisclosureDoc_cfCopyID" />
+                <ScalarProperty Name="AdjudDoc_canAddVersions" ColumnName="AdjudDoc_canAddVersions" />
+                <ScalarProperty Name="AdjudDoc_DocDate" ColumnName="AdjudDoc_DocDate" />
+                <ScalarProperty Name="AdjudDoc_cfSpecialWords" ColumnName="AdjudDoc_cfSpecialWords" />
+                <ScalarProperty Name="AdjudDoc_abstract" ColumnName="AdjudDoc_abstract" />
+                <ScalarProperty Name="AdjudDoc_add_as_draft" ColumnName="AdjudDoc_add_as_draft" />
+                <ScalarProperty Name="AdjudDoc_isPlaceholder" ColumnName="AdjudDoc_isPlaceholder" />
+                <ScalarProperty Name="AdjudDoc_isInteract" ColumnName="AdjudDoc_isInteract" />
+                <ScalarProperty Name="AdjudDoc_cfCopyID" ColumnName="AdjudDoc_cfCopyID" />
+                <ScalarProperty Name="AdjudDoc_content_type" ColumnName="AdjudDoc_content_type" />
+                <ScalarProperty Name="Adjud_autoMovePreferredVersion" ColumnName="Adjud_autoMovePreferredVersion" />
+                <ScalarProperty Name="AdjudDoc_size" ColumnName="AdjudDoc_size" />
+                <ScalarProperty Name="AdjudDoc_author" ColumnName="AdjudDoc_author" />
+                <ScalarProperty Name="AdjudDoc_original_file_name" ColumnName="AdjudDoc_original_file_name" />
+                <ScalarProperty Name="AdjudDoc_DocNumber" ColumnName="AdjudDoc_DocNumber" />
+                <ScalarProperty Name="AdjudDoc_highest_version_used" ColumnName="AdjudDoc_highest_version_used" />
+                <ScalarProperty Name="AdjudDoc_max_versions" ColumnName="AdjudDoc_max_versions" />
+                <ScalarProperty Name="Version_revision_comments" ColumnName="Version_revision_comments" />
+                <ScalarProperty Name="Version_version_number" ColumnName="Version_version_number" />
+                <ScalarProperty Name="DamSafetyDoc_canAddVersions" ColumnName="DamSafetyDoc_canAddVersions" />
+                <ScalarProperty Name="DamSafetyDoc_content_type" ColumnName="DamSafetyDoc_content_type" />
+                <ScalarProperty Name="DamSafetyDoc_abstract" ColumnName="DamSafetyDoc_abstract" />
+                <ScalarProperty Name="DamSafetyDoc_cfCopyID" ColumnName="DamSafetyDoc_cfCopyID" />
+                <ScalarProperty Name="DamSa_autoMovePreferredVersion" ColumnName="DamSa_autoMovePreferredVersion" />
+                <ScalarProperty Name="DamSafetyDoc_cfSpecialWords" ColumnName="DamSafetyDoc_cfSpecialWords" />
+                <ScalarProperty Name="DamSafetyDoc_isInteract" ColumnName="DamSafetyDoc_isInteract" />
+                <ScalarProperty Name="DamSafetyDoc_isPlaceholder" ColumnName="DamSafetyDoc_isPlaceholder" />
+                <ScalarProperty Name="DamSafetyDoc_size" ColumnName="DamSafetyDoc_size" />
+                <ScalarProperty Name="DamSafetyDoc_StateID" ColumnName="DamSafetyDoc_StateID" />
+                <ScalarProperty Name="DamSafetyDoc_NatID" ColumnName="DamSafetyDoc_NatID" />
+                <ScalarProperty Name="DamSafetyDoc_DocTitle" ColumnName="DamSafetyDoc_DocTitle" />
+                <ScalarProperty Name="DamSafetyDoc_max_versions" ColumnName="DamSafetyDoc_max_versions" />
+                <ScalarProperty Name="DamSafetyDoc_DamName" ColumnName="DamSafetyDoc_DamName" />
+                <ScalarProperty Name="DamSafetyDoc_Jurisdictional" ColumnName="DamSafetyDoc_Jurisdictional" />
+                <ScalarProperty Name="DamSafetyDoc_DocType" ColumnName="DamSafetyDoc_DocType" />
+                <ScalarProperty Name="DamSafetyDo_original_file_name" ColumnName="DamSafetyDo_original_file_name" />
+                <ScalarProperty Name="DamSafetyDoc_County" ColumnName="DamSafetyDoc_County" />
+                <ScalarProperty Name="DamSafety_highest_version_used" ColumnName="DamSafety_highest_version_used" />
+                <ScalarProperty Name="DamSafetyDoc_add_as_draft" ColumnName="DamSafetyDoc_add_as_draft" />
+                <ScalarProperty Name="DamSafetyDoc_author" ColumnName="DamSafetyDoc_author" />
+                <ScalarProperty Name="WellRegDoc_Location" ColumnName="WellRegDoc_Location" />
+                <ScalarProperty Name="WellRegDoc_content_type" ColumnName="WellRegDoc_content_type" />
+                <ScalarProperty Name="WellRegDo_highest_version_used" ColumnName="WellRegDo_highest_version_used" />
+                <ScalarProperty Name="WellRegDoc_max_versions" ColumnName="WellRegDoc_max_versions" />
+                <ScalarProperty Name="WellRegDoc_abstract" ColumnName="WellRegDoc_abstract" />
+                <ScalarProperty Name="WellRegDoc_add_as_draft" ColumnName="WellRegDoc_add_as_draft" />
+                <ScalarProperty Name="WellRegDoc_cfSpecialWords" ColumnName="WellRegDoc_cfSpecialWords" />
+                <ScalarProperty Name="WellRegDoc_cfCopyID" ColumnName="WellRegDoc_cfCopyID" />
+                <ScalarProperty Name="WellR_autoMovePreferredVersion" ColumnName="WellR_autoMovePreferredVersion" />
+                <ScalarProperty Name="WellRegDoc_size" ColumnName="WellRegDoc_size" />
+                <ScalarProperty Name="WellRegDoc_isInteract" ColumnName="WellRegDoc_isInteract" />
+                <ScalarProperty Name="WellRegDoc_original_file_name" ColumnName="WellRegDoc_original_file_name" />
+                <ScalarProperty Name="WellRegDoc_author" ColumnName="WellRegDoc_author" />
+                <ScalarProperty Name="WellRegDoc_isPlaceholder" ColumnName="WellRegDoc_isPlaceholder" />
+                <ScalarProperty Name="WellRegDoc_RegID" ColumnName="WellRegDoc_RegID" />
+                <ScalarProperty Name="WellRegDoc_canAddVersions" ColumnName="WellRegDoc_canAddVersions" />
+                <ScalarProperty Name="Object_webdav_title" ColumnName="Object_webdav_title" />
+                <ScalarProperty Name="Object_summary" ColumnName="Object_summary" />
+                <ScalarProperty Name="Object_isRootElement" ColumnName="Object_isRootElement" />
+                <ScalarProperty Name="Object_isRecord" ColumnName="Object_isRecord" />
+                <ScalarProperty Name="Object_readyForDeclare" ColumnName="Object_readyForDeclare" />
+                <ScalarProperty Name="Object_keywords" ColumnName="Object_keywords" />
+                <ScalarProperty Name="Object_create_date" ColumnName="Object_create_date" />
+                <ScalarProperty Name="Object_modified_date" ColumnName="Object_modified_date" />
+                <ScalarProperty Name="Object_Locale" ColumnName="Object_Locale" />
+                <ScalarProperty Name="Object_space" ColumnName="Object_space" />
+                <ScalarProperty Name="Object_description" ColumnName="Object_description" />
+                <ScalarProperty Name="Object_title" ColumnName="Object_title" />
+                <ScalarProperty Name="SOCDoc_max_versions" ColumnName="SOCDoc_max_versions" />
+                <ScalarProperty Name="SOCDoc_canAddVersions" ColumnName="SOCDoc_canAddVersions" />
+                <ScalarProperty Name="SOCDoc_original_file_name" ColumnName="SOCDoc_original_file_name" />
+                <ScalarProperty Name="SOCDoc_content_type" ColumnName="SOCDoc_content_type" />
+                <ScalarProperty Name="SOCDoc_abstract" ColumnName="SOCDoc_abstract" />
+                <ScalarProperty Name="SOCDoc_add_as_draft" ColumnName="SOCDoc_add_as_draft" />
+                <ScalarProperty Name="SOCDoc_cfCopyID" ColumnName="SOCDoc_cfCopyID" />
+                <ScalarProperty Name="SOCDoc_isPlaceholder" ColumnName="SOCDoc_isPlaceholder" />
+                <ScalarProperty Name="SOCDoc_cfSpecialWords" ColumnName="SOCDoc_cfSpecialWords" />
+                <ScalarProperty Name="SOCDo_autoMovePreferredVersion" ColumnName="SOCDo_autoMovePreferredVersion" />
+                <ScalarProperty Name="SOCDoc_size" ColumnName="SOCDoc_size" />
+                <ScalarProperty Name="SOCDoc_isInteract" ColumnName="SOCDoc_isInteract" />
+                <ScalarProperty Name="SOCDoc_FileNumber" ColumnName="SOCDoc_FileNumber" />
+                <ScalarProperty Name="SOCDoc_Misc2" ColumnName="SOCDoc_Misc2" />
+                <ScalarProperty Name="SOCDoc_WatershedCode" ColumnName="SOCDoc_WatershedCode" />
+                <ScalarProperty Name="SOCDoc_Misc" ColumnName="SOCDoc_Misc" />
+                <ScalarProperty Name="SOCDoc_highest_version_used" ColumnName="SOCDoc_highest_version_used" />
+                <ScalarProperty Name="SOCDoc_author" ColumnName="SOCDoc_author" />
+                <ScalarProperty Name="Document_add_as_draft" ColumnName="Document_add_as_draft" />
+                <ScalarProperty Name="Well35Doc_content_type" ColumnName="Well35Doc_content_type" />
+                <ScalarProperty Name="Well35Doc_abstract" ColumnName="Well35Doc_abstract" />
+                <ScalarProperty Name="Well35Doc_add_as_draft" ColumnName="Well35Doc_add_as_draft" />
+                <ScalarProperty Name="Well35Doc_cfCopyID" ColumnName="Well35Doc_cfCopyID" />
+                <ScalarProperty Name="Well35Doc_isPlaceholder" ColumnName="Well35Doc_isPlaceholder" />
+                <ScalarProperty Name="Well35Doc_cfSpecialWords" ColumnName="Well35Doc_cfSpecialWords" />
+                <ScalarProperty Name="Well3_autoMovePreferredVersion" ColumnName="Well3_autoMovePreferredVersion" />
+                <ScalarProperty Name="Well35Doc_size" ColumnName="Well35Doc_size" />
+                <ScalarProperty Name="Well35Doc_isInteract" ColumnName="Well35Doc_isInteract" />
+                <ScalarProperty Name="Well35Doc_Location" ColumnName="Well35Doc_Location" />
+                <ScalarProperty Name="Well35Doc_New" ColumnName="Well35Doc_New" />
+                <ScalarProperty Name="Well35Doc_Old" ColumnName="Well35Doc_Old" />
+                <ScalarProperty Name="Well35Doc_Name" ColumnName="Well35Doc_Name" />
+                <ScalarProperty Name="Well35Doc_Box" ColumnName="Well35Doc_Box" />
+                <ScalarProperty Name="Well35Doc_CD" ColumnName="Well35Doc_CD" />
+                <ScalarProperty Name="Well35Doc_highest_version_used" ColumnName="Well35Doc_highest_version_used" />
+                <ScalarProperty Name="Well35Doc_max_versions" ColumnName="Well35Doc_max_versions" />
+                <ScalarProperty Name="Well35Doc_canAddVersions" ColumnName="Well35Doc_canAddVersions" />
+                <ScalarProperty Name="Well35Doc_author" ColumnName="Well35Doc_author" />
+                <ScalarProperty Name="Well35Doc_original_file_name" ColumnName="Well35Doc_original_file_name" />
+                <ScalarProperty Name="Document_original_file_name" ColumnName="Document_original_file_name" />
+                <ScalarProperty Name="Document_canAddVersions" ColumnName="Document_canAddVersions" />
+                <ScalarProperty Name="Document_isInteract" ColumnName="Document_isInteract" />
+                <ScalarProperty Name="Docum_autoMovePreferredVersion" ColumnName="Docum_autoMovePreferredVersion" />
+                <ScalarProperty Name="Document_author" ColumnName="Document_author" />
+                <ScalarProperty Name="Rendition_rendition_type" ColumnName="Rendition_rendition_type" />
+                <ScalarProperty Name="content_size" ColumnName="content_size" />
+                <ScalarProperty Name="Document_max_versions" ColumnName="Document_max_versions" />
+                <ScalarProperty Name="Document_highest_version_used" ColumnName="Document_highest_version_used" />
+                <ScalarProperty Name="RechargeDoc_cfCopyID" ColumnName="RechargeDoc_cfCopyID" />
+                <ScalarProperty Name="RechargeDoc_isPlaceholder" ColumnName="RechargeDoc_isPlaceholder" />
+                <ScalarProperty Name="RechargeDoc_cfSpecialWords" ColumnName="RechargeDoc_cfSpecialWords" />
+                <ScalarProperty Name="Recha_autoMovePreferredVersion" ColumnName="Recha_autoMovePreferredVersion" />
+                <ScalarProperty Name="RechargeDoc_size" ColumnName="RechargeDoc_size" />
+                <ScalarProperty Name="RechargeDoc_isInteract" ColumnName="RechargeDoc_isInteract" />
+                <ScalarProperty Name="RechargeDoc_PCC" ColumnName="RechargeDoc_PCC" />
+                <ScalarProperty Name="RechargeDoc_Year" ColumnName="RechargeDoc_Year" />
+                <ScalarProperty Name="RechargeDoc_DocType" ColumnName="RechargeDoc_DocType" />
+                <ScalarProperty Name="RechargeDoc_Misc" ColumnName="RechargeDoc_Misc" />
+                <ScalarProperty Name="RechargeDoc_Owner" ColumnName="RechargeDoc_Owner" />
+                <ScalarProperty Name="RechargeD_highest_version_used" ColumnName="RechargeD_highest_version_used" />
+                <ScalarProperty Name="RechargeDoc_max_versions" ColumnName="RechargeDoc_max_versions" />
+                <ScalarProperty Name="RechargeDoc_canAddVersions" ColumnName="RechargeDoc_canAddVersions" />
+                <ScalarProperty Name="RechargeDoc_author" ColumnName="RechargeDoc_author" />
+                <ScalarProperty Name="RechargeDoc_original_file_name" ColumnName="RechargeDoc_original_file_name" />
+                <ScalarProperty Name="RechargeDoc_FacilityName" ColumnName="RechargeDoc_FacilityName" />
+                <ScalarProperty Name="RechargeDoc_content_type" ColumnName="RechargeDoc_content_type" />
+                <ScalarProperty Name="RechargeDoc_abstract" ColumnName="RechargeDoc_abstract" />
+                <ScalarProperty Name="RechargeDoc_add_as_draft" ColumnName="RechargeDoc_add_as_draft" />
+                <ScalarProperty Name="CWSDoc_abstract" ColumnName="CWSDoc_abstract" />
+                <ScalarProperty Name="CWSDoc_add_as_draft" ColumnName="CWSDoc_add_as_draft" />
+                <ScalarProperty Name="CWSDoc_cfCopyID" ColumnName="CWSDoc_cfCopyID" />
+                <ScalarProperty Name="CWSDoc_isPlaceholder" ColumnName="CWSDoc_isPlaceholder" />
+                <ScalarProperty Name="CWSDoc_cfSpecialWords" ColumnName="CWSDoc_cfSpecialWords" />
+                <ScalarProperty Name="CWSDo_autoMovePreferredVersion" ColumnName="CWSDo_autoMovePreferredVersion" />
+                <ScalarProperty Name="CWSDoc_size" ColumnName="CWSDoc_size" />
+                <ScalarProperty Name="CWSDoc_isInteract" ColumnName="CWSDoc_isInteract" />
+                <ScalarProperty Name="CWSDoc_Misc" ColumnName="CWSDoc_Misc" />
+                <ScalarProperty Name="CWSDoc_SystemName" ColumnName="CWSDoc_SystemName" />
+                <ScalarProperty Name="CWSDoc_PCC" ColumnName="CWSDoc_PCC" />
+                <ScalarProperty Name="CWSDoc_DocType" ColumnName="CWSDoc_DocType" />
+                <ScalarProperty Name="CWSDoc_ARYear" ColumnName="CWSDoc_ARYear" />
+                <ScalarProperty Name="CWSDoc_highest_version_used" ColumnName="CWSDoc_highest_version_used" />
+                <ScalarProperty Name="CWSDoc_max_versions" ColumnName="CWSDoc_max_versions" />
+                <ScalarProperty Name="CWSDoc_canAddVersions" ColumnName="CWSDoc_canAddVersions" />
+                <ScalarProperty Name="CWSDoc_author" ColumnName="CWSDoc_author" />
+                <ScalarProperty Name="CWSDoc_original_file_name" ColumnName="CWSDoc_original_file_name" />
+                <ScalarProperty Name="CWSDoc_content_type" ColumnName="CWSDoc_content_type" />
+                <ScalarProperty Name="Rendition_generated" ColumnName="Rendition_generated" />
+                <ScalarProperty Name="GWDoc_canAddVersions" ColumnName="GWDoc_canAddVersions" />
+                <ScalarProperty Name="GWDoc_author" ColumnName="GWDoc_author" />
+                <ScalarProperty Name="GWDoc_original_file_name" ColumnName="GWDoc_original_file_name" />
+                <ScalarProperty Name="GWDoc_content_type" ColumnName="GWDoc_content_type" />
+                <ScalarProperty Name="GWDoc_abstract" ColumnName="GWDoc_abstract" />
+                <ScalarProperty Name="GWDoc_add_as_draft" ColumnName="GWDoc_add_as_draft" />
+                <ScalarProperty Name="GWDoc_cfCopyID" ColumnName="GWDoc_cfCopyID" />
+                <ScalarProperty Name="GWDoc_isPlaceholder" ColumnName="GWDoc_isPlaceholder" />
+                <ScalarProperty Name="GWDoc_cfSpecialWords" ColumnName="GWDoc_cfSpecialWords" />
+                <ScalarProperty Name="GWDoc_autoMovePreferredVersion" ColumnName="GWDoc_autoMovePreferredVersion" />
+                <ScalarProperty Name="GWDoc_size" ColumnName="GWDoc_size" />
+                <ScalarProperty Name="GWDoc_isInteract" ColumnName="GWDoc_isInteract" />
+                <ScalarProperty Name="GWDoc_PCC" ColumnName="GWDoc_PCC" />
+                <ScalarProperty Name="GWDoc_DocType" ColumnName="GWDoc_DocType" />
+                <ScalarProperty Name="GWDoc_Year" ColumnName="GWDoc_Year" />
+                <ScalarProperty Name="GWDoc_AMA" ColumnName="GWDoc_AMA" />
+                <ScalarProperty Name="GWDoc_Subbasin" ColumnName="GWDoc_Subbasin" />
+                <ScalarProperty Name="GWDoc_Type" ColumnName="GWDoc_Type" />
+                <ScalarProperty Name="GWDoc_IrrDistName" ColumnName="GWDoc_IrrDistName" />
+                <ScalarProperty Name="GWDoc_Misc" ColumnName="GWDoc_Misc" />
+                <ScalarProperty Name="GWDoc_Owner" ColumnName="GWDoc_Owner" />
+                <ScalarProperty Name="GWDoc_highest_version_used" ColumnName="GWDoc_highest_version_used" />
+                <ScalarProperty Name="GWDoc_max_versions" ColumnName="GWDoc_max_versions" />
+                <ScalarProperty Name="PlanningCollection_FedID" ColumnName="PlanningCollection_FedID" />
+                <ScalarProperty Name="PlanningColle_ProjectStartDate" ColumnName="PlanningColle_ProjectStartDate" />
+                <ScalarProperty Name="PlanningCollection_Location" ColumnName="PlanningCollection_Location" />
+                <ScalarProperty Name="PlanningCollection_City" ColumnName="PlanningCollection_City" />
+                <ScalarProperty Name="PlanningCollection_County" ColumnName="PlanningCollection_County" />
+                <ScalarProperty Name="PlanningCollection_ContactName" ColumnName="PlanningCollection_ContactName" />
+                <ScalarProperty Name="PlanningCollectio_ContactPhone" ColumnName="PlanningCollectio_ContactPhone" />
+                <ScalarProperty Name="PlanningCollectio_ContactEmail" ColumnName="PlanningCollectio_ContactEmail" />
+                <ScalarProperty Name="PlanningCollectio_DeadlineDate" ColumnName="PlanningCollectio_DeadlineDate" />
+                <ScalarProperty Name="PlanningCollect_AdditionalInfo" ColumnName="PlanningCollect_AdditionalInfo" />
+                <ScalarProperty Name="PlanningCollectio_ADWRComments" ColumnName="PlanningCollectio_ADWRComments" />
+                <ScalarProperty Name="PlanningCollect_ReviewComplete" ColumnName="PlanningCollect_ReviewComplete" />
+                <ScalarProperty Name="PlanningCollection_ReceiveDate" ColumnName="PlanningCollection_ReceiveDate" />
+                <ScalarProperty Name="PlanningCollection_Status" ColumnName="PlanningCollection_Status" />
+                <ScalarProperty Name="PlanningCollection_AMA_INA" ColumnName="PlanningCollection_AMA_INA" />
+                <ScalarProperty Name="PlanningCollection_bg_image" ColumnName="PlanningCollection_bg_image" />
+                <ScalarProperty Name="PlanningCollection_spamControl" ColumnName="PlanningCollection_spamControl" />
+                <ScalarProperty Name="PlanningCollection_logo" ColumnName="PlanningCollection_logo" />
+                <ScalarProperty Name="PlanningCollectio_add_as_draft" ColumnName="PlanningCollectio_add_as_draft" />
+                <ScalarProperty Name="PlanningCollection_emailAlias" ColumnName="PlanningCollection_emailAlias" />
+                <ScalarProperty Name="PlanningCollection_view_format" ColumnName="PlanningCollection_view_format" />
+                <ScalarProperty Name="PlanningCollec_attachmentsOnly" ColumnName="PlanningCollec_attachmentsOnly" />
+                <ScalarProperty Name="PlanningCollection_sort_order" ColumnName="PlanningCollection_sort_order" />
+                <ScalarProperty Name="PlanningCollection_AgencyName" ColumnName="PlanningCollection_AgencyName" />
+                <ScalarProperty Name="PlanningCollection_AgencyType" ColumnName="PlanningCollection_AgencyType" />
+                <ScalarProperty Name="PlanningCollectio_ProjectTitle" ColumnName="PlanningCollectio_ProjectTitle" />
+                <ScalarProperty Name="AAWSDoc_isInteract" ColumnName="AAWSDoc_isInteract" />
+                <ScalarProperty Name="AAWSDoc_PCC" ColumnName="AAWSDoc_PCC" />
+                <ScalarProperty Name="AAWSDoc_ProjectName" ColumnName="AAWSDoc_ProjectName" />
+                <ScalarProperty Name="AAWSDoc_Misc" ColumnName="AAWSDoc_Misc" />
+                <ScalarProperty Name="AAWSDoc_Status" ColumnName="AAWSDoc_Status" />
+                <ScalarProperty Name="AAWSDoc_ARYear" ColumnName="AAWSDoc_ARYear" />
+                <ScalarProperty Name="AAWSDoc_DocType" ColumnName="AAWSDoc_DocType" />
+                <ScalarProperty Name="AAWSDoc_highest_version_used" ColumnName="AAWSDoc_highest_version_used" />
+                <ScalarProperty Name="AAWSDoc_max_versions" ColumnName="AAWSDoc_max_versions" />
+                <ScalarProperty Name="AAWSDoc_canAddVersions" ColumnName="AAWSDoc_canAddVersions" />
+                <ScalarProperty Name="AAWSDoc_author" ColumnName="AAWSDoc_author" />
+                <ScalarProperty Name="AAWSDoc_original_file_name" ColumnName="AAWSDoc_original_file_name" />
+                <ScalarProperty Name="AAWSDoc_content_type" ColumnName="AAWSDoc_content_type" />
+                <ScalarProperty Name="AAWSDoc_abstract" ColumnName="AAWSDoc_abstract" />
+                <ScalarProperty Name="AAWSDoc_add_as_draft" ColumnName="AAWSDoc_add_as_draft" />
+                <ScalarProperty Name="AAWSDoc_cfCopyID" ColumnName="AAWSDoc_cfCopyID" />
+                <ScalarProperty Name="AAWSDoc_isPlaceholder" ColumnName="AAWSDoc_isPlaceholder" />
+                <ScalarProperty Name="AAWSDoc_cfSpecialWords" ColumnName="AAWSDoc_cfSpecialWords" />
+                <ScalarProperty Name="AAWSD_autoMovePreferredVersion" ColumnName="AAWSD_autoMovePreferredVersion" />
+                <ScalarProperty Name="AAWSDoc_size" ColumnName="AAWSDoc_size" />
+                <ScalarProperty Name="RecorderChart_SiteID" ColumnName="RecorderChart_SiteID" />
+                <ScalarProperty Name="RecorderChart_LocalID" ColumnName="RecorderChart_LocalID" />
+                <ScalarProperty Name="RecorderChart_Cadastral" ColumnName="RecorderChart_Cadastral" />
+                <ScalarProperty Name="RecorderChart_DateDownload" ColumnName="RecorderChart_DateDownload" />
+                <ScalarProperty Name="RecorderC_highest_version_used" ColumnName="RecorderC_highest_version_used" />
+                <ScalarProperty Name="RecorderChart_max_versions" ColumnName="RecorderChart_max_versions" />
+                <ScalarProperty Name="RecorderChart_canAddVersions" ColumnName="RecorderChart_canAddVersions" />
+                <ScalarProperty Name="RecorderChart_author" ColumnName="RecorderChart_author" />
+                <ScalarProperty Name="RecorderCha_original_file_name" ColumnName="RecorderCha_original_file_name" />
+                <ScalarProperty Name="RecorderChart_content_type" ColumnName="RecorderChart_content_type" />
+                <ScalarProperty Name="RecorderChart_abstract" ColumnName="RecorderChart_abstract" />
+                <ScalarProperty Name="RecorderChart_add_as_draft" ColumnName="RecorderChart_add_as_draft" />
+                <ScalarProperty Name="RecorderChart_cfCopyID" ColumnName="RecorderChart_cfCopyID" />
+                <ScalarProperty Name="RecorderChart_isPlaceholder" ColumnName="RecorderChart_isPlaceholder" />
+                <ScalarProperty Name="RecorderChart_cfSpecialWords" ColumnName="RecorderChart_cfSpecialWords" />
+                <ScalarProperty Name="Recor_autoMovePreferredVersion" ColumnName="Recor_autoMovePreferredVersion" />
+                <ScalarProperty Name="RecorderChart_size" ColumnName="RecorderChart_size" />
+                <ScalarProperty Name="RecorderChart_isInteract" ColumnName="RecorderChart_isInteract" />
+                <ScalarProperty Name="RecorderChart_WellName" ColumnName="RecorderChart_WellName" />
+                <ScalarProperty Name="AWRDoc_highest_version_used" ColumnName="AWRDoc_highest_version_used" />
+                <ScalarProperty Name="AWRDoc_max_versions" ColumnName="AWRDoc_max_versions" />
+                <ScalarProperty Name="AWRDoc_canAddVersions" ColumnName="AWRDoc_canAddVersions" />
+                <ScalarProperty Name="AWRDoc_author" ColumnName="AWRDoc_author" />
+                <ScalarProperty Name="AWRDoc_original_file_name" ColumnName="AWRDoc_original_file_name" />
+                <ScalarProperty Name="AWRDoc_content_type" ColumnName="AWRDoc_content_type" />
+                <ScalarProperty Name="AWRDoc_abstract" ColumnName="AWRDoc_abstract" />
+                <ScalarProperty Name="AWRDoc_cfCopyID" ColumnName="AWRDoc_cfCopyID" />
+                <ScalarProperty Name="AWRDoc_add_as_draft" ColumnName="AWRDoc_add_as_draft" />
+                <ScalarProperty Name="AWRDoc_isPlaceholder" ColumnName="AWRDoc_isPlaceholder" />
+                <ScalarProperty Name="AWRDoc_cfSpecialWords" ColumnName="AWRDoc_cfSpecialWords" />
+                <ScalarProperty Name="AWRDoc_size" ColumnName="AWRDoc_size" />
+                <ScalarProperty Name="AWRDo_autoMovePreferredVersion" ColumnName="AWRDo_autoMovePreferredVersion" />
+                <ScalarProperty Name="AWRDoc_isInteract" ColumnName="AWRDoc_isInteract" />
+                <ScalarProperty Name="AWRDoc_ProposedWaterRight" ColumnName="AWRDoc_ProposedWaterRight" />
+                <ScalarProperty Name="AWRDoc_OwnerWaterRight" ColumnName="AWRDoc_OwnerWaterRight" />
+                <ScalarProperty Name="AWRDoc_landowner" ColumnName="AWRDoc_landowner" />
+                <ScalarProperty Name="AWRDoc_SOC_no" ColumnName="AWRDoc_SOC_no" />
+                <ScalarProperty Name="AWRDoc_SOC_name" ColumnName="AWRDoc_SOC_name" />
+                <ScalarProperty Name="AWRDoc_LeasePermit" ColumnName="AWRDoc_LeasePermit" />
+                <ScalarProperty Name="AWRDoc_BasisRight" ColumnName="AWRDoc_BasisRight" />
+                <ScalarProperty Name="AWRDoc_BeneficialUse" ColumnName="AWRDoc_BeneficialUse" />
+                <ScalarProperty Name="AWRDoc_PriorityDate" ColumnName="AWRDoc_PriorityDate" />
+                <ScalarProperty Name="AWRDoc_Quantity" ColumnName="AWRDoc_Quantity" />
+                <ScalarProperty Name="AWRDoc_PlaaceUse" ColumnName="AWRDoc_PlaaceUse" />
+                <ScalarProperty Name="AWRDoc_PointDiversion" ColumnName="AWRDoc_PointDiversion" />
+                <ScalarProperty Name="AWRDoc_SourceWater" ColumnName="AWRDoc_SourceWater" />
+                <ScalarProperty Name="AWRDoc_FacilityName" ColumnName="AWRDoc_FacilityName" />
+                <ScalarProperty Name="AWRDoc_watershed" ColumnName="AWRDoc_watershed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

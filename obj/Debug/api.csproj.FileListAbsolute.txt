@@ -37,3 +37,7 @@ C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csproj.CoreCompileInputs.ca
 C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csproj.CopyComplete
 C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.dll
 C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.pdb
+C:\Development\VisualStudio 2017\DSAPI\bin\EntityFramework.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\EntityFramework.SqlServer.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\EntityFramework.xml
+C:\Development\VisualStudio 2017\DSAPI\bin\EntityFramework.SqlServer.xml
