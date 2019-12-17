@@ -19,7 +19,6 @@ C:\Development\VisualStudio 2017\DSAPI\bin\Newtonsoft.Json.xml
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Net.Http.Formatting.xml
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.xml
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.WebHost.xml
-C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.csprojAssemblyReference.cache
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.csproj.CoreCompileInputs.cache
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.csproj.CopyComplete
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.dll

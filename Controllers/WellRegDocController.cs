@@ -11,11 +11,13 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Xml;
 using static api.App_Code.Util;
 
 namespace api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WellRegDocController : ApiController
     {
         #region private methods

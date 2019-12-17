@@ -43,3 +43,4 @@ C:\Development\VisualStudio 2017\DSAPI\bin\EntityFramework.SqlServer.xml
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Cors.dll
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.dll
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.xml
+C:\Development\VisualStudio 2017\DSAPI\obj\Debug\api.csprojAssemblyReference.cache
