@@ -9,6 +9,10 @@ namespace api
     {
         public static void Register(HttpConfiguration config)
         {
+
+            //enable cors
+            config.EnableCors();
+
             // Web API configuration and services
 
             // Web API routes

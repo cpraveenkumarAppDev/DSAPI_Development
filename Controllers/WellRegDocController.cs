@@ -265,7 +265,9 @@ namespace api.Controllers
 
                 var wellId = getMetadata(myData, "WellId");
 
-                XmlDocument XMLDoc = utils.uploadNewDocument(myData.pdf, "Collection-18345" + "\\" + DocType, wellId);
+                string wellRegCollection = ConfigurationManager.AppSettings["wellRegCollection"];
+
+                XmlDocument XMLDoc = utils.uploadNewDocument(myData.pdf, wellRegCollection + "\\" + DocType, wellId);
                 //find document handle
                 string strDSRef = "";
                 XmlNode node = XMLDoc.SelectSingleNode("/document/handle");

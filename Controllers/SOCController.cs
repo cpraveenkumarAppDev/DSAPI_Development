@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Configuration;
 using api.App_Code;
+using System.Web.Http.Cors;
+using Newtonsoft.Json;
 
 namespace api.Controllers
 {
@@ -22,6 +24,7 @@ namespace api.Controllers
         /// <param name="fileNumber"></param>
         /// <returns></returns>
         [HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public HttpResponseMessage GetSOCDocuments(string fileNumber)
         {
             List<Uri> docLinks = new List<Uri>();

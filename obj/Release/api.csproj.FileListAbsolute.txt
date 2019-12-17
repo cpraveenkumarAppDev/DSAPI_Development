@@ -25,3 +25,6 @@ C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.csproj.CopyComplete
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.dll
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.pdb
 C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.XmlSerializers.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Cors.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.dll
+C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.xml
