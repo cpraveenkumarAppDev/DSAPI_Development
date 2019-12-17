@@ -190,7 +190,7 @@ namespace api.Controllers
                         string newPagesFileName = utils.ByteArrayToFile(myData.pdf);
                         // Create Banner Page
                         string bannerNotes = getMetadata(myData, "BannerNotes");
-                        utils.WriteLog("--------------  Creating Banner Ron : " + bannerNotes);
+                        utils.WriteLog("--------------  Creating Banner : " + bannerNotes);
                         byte[] splitterFile =
                             utils.rptSvc.GetPDFStream("2643",
                                                       "Message='Update for Registry: " +
@@ -257,7 +257,7 @@ namespace api.Controllers
                 utils.WriteLog("--------------  Loading OriginalFile");
                 string originalFilename = utils.ByteArrayToFile(myData.pdf);
                 string bannerNotes = getMetadata(myData, "BannerNotes");
-                utils.WriteLog("--------------  Creating Banner Ron2: " + bannerNotes);
+                utils.WriteLog("--------------  Creating Banner: " + bannerNotes);
 
                 //moved reportbuilder.getpdfstream call to client programs 11/27/19 ian
 
@@ -312,7 +312,7 @@ namespace api.Controllers
         [HttpPost]
         public string Post([FromBody] Scan myData)
         {
-            utils.WriteLog("Ron Post: id=" + myData.Id + " Metadata: " + myData.MetaData);
+            utils.WriteLog("Post: id=" + myData.Id + " Metadata: " + myData.MetaData);
             string result = "";
             try
             {

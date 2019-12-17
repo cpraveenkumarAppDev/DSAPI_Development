@@ -446,21 +446,21 @@ namespace api.App_Code
         #endregion
 
         #region Logging Code
-        public void WriteLog(string s)
+        public void WriteLog(string content)
         {
             if (ConfigurationManager.AppSettings["WriteLog"].ToString() == "1")
             {
                 FileStream fs;
-                string folderPath = @"c:\temp";
+                string folderPath = ConfigurationManager.AppSettings["LogPath"];
                 if (!System.IO.Directory.Exists(folderPath))
                     System.IO.Directory.CreateDirectory(folderPath);
-                fs = new FileStream(folderPath + "\\dsTools_log.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                fs = new FileStream(folderPath + "\\DSapiLog.txt", FileMode.OpenOrCreate, FileAccess.Write);
 
                 // Write log
                 StreamWriter m_streamWriter = new StreamWriter(fs);
                 m_streamWriter.BaseStream.Seek(0, SeekOrigin.End);
                 m_streamWriter.WriteLine(DateTime.Now.ToShortDateString() + " " +
-                                              DateTime.Now.ToLongTimeString() + " - " + s + "\n");
+                                              DateTime.Now.ToLongTimeString() + " - " + content + "\n");
                 m_streamWriter.Flush();
                 m_streamWriter.Close();
             }
