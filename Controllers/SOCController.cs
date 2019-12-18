@@ -29,15 +29,16 @@ namespace api.Controllers
         {
             List<Uri> docLinks = new List<Uri>();
             string tempLink;
+            string socDocType = "SOCDoc";
             using (var db = new DocushareEntities())
             {
-                var dbItems = db.DSObject_table.Where(x => x.SOCDoc_FileNumber == fileNumber).Select(x => new { x.SOCDoc_FileNumber, x.handle_index}).ToList();
+                var dbItems = db.DSObject_table.Where(x => x.SOCDoc_FileNumber == fileNumber && x.Object_isDeleted == 0).Select(x => new { x.SOCDoc_FileNumber, x.handle_index}).ToList();
                 if(dbItems.Count() > 0)
                 {
                     utils.WriteLog($"SOC fileNumber: {fileNumber}");
                     foreach (var item in dbItems)
                     {
-                        tempLink = $"{DocushareUrl}SOCDoc-{item.handle_index}";
+                        tempLink = $"{DocushareUrl}{socDocType}-{item.handle_index}";
                         docLinks.Add(new Uri(tempLink));
                         utils.WriteLog($"\t{item.SOCDoc_FileNumber}: {item.handle_index}");
                     }

@@ -118,6 +118,7 @@
     <Compile Include="App_Code\Util.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\armFolderController.cs" />
+    <Compile Include="Controllers\RechargeController.cs" />
     <Compile Include="Controllers\SOCController.cs" />
     <Compile Include="Controllers\WellRegDocController.cs" />
     <Compile Include="Controllers\ScanController.cs" />

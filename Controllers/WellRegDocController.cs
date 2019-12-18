@@ -22,7 +22,7 @@ namespace api.Controllers
     {
         #region private methods
         Util utils = new Util();
-        private dsFileInfo findWellRegDoc(WellRegDoc myDoc)
+        private dsFileInfo FindWellRegDoc(WellRegDoc myDoc)
         {
             dsFileInfo fileInfo = new dsFileInfo();
 
@@ -301,7 +301,7 @@ namespace api.Controllers
         public WellRegDoc Get(string regId)
         {
             WellRegDoc docInfo = new WellRegDoc(regId);
-            dsFileInfo info = findWellRegDoc(docInfo);
+            dsFileInfo info = FindWellRegDoc(docInfo);
             return docInfo;
         }
 
@@ -321,7 +321,7 @@ namespace api.Controllers
             try
             {
                 WellRegDoc docInfo = new WellRegDoc(getMetadata(myData, "WellId"));
-                dsFileInfo info = findWellRegDoc(docInfo);
+                dsFileInfo info = FindWellRegDoc(docInfo);
                 if (info.errorCode == dsErrorCodes.ecSuccess)
                 {
                     //update file

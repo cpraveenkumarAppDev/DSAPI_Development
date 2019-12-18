@@ -14,7 +14,7 @@ namespace api.Controllers
     {
         #region Private Functions
         Util utils = new Util();
-        private List<armFolder> findFolderList()
+        private List<armFolder> FindFolderList()
         {
             string query = "SELECT FOLDERID,NAME,NVL(PARENT_ID,-1) PARENT_ID,NVL(ORDERID,0) ORDERID FROM RGR.RBFOLDER";
             DataTable TableX = utils.GetORADataTable(query);
@@ -36,7 +36,7 @@ namespace api.Controllers
         [ActionName("List")] //api call http://localhost:2349/api/armFolder/List
         public List<armFolder> List()
         {
-            return findFolderList();
+            return FindFolderList();
         }
 
     }

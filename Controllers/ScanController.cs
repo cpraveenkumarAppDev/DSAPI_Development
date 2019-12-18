@@ -13,7 +13,7 @@ namespace api.Controllers
     public class ScanController : ApiController
     {
         [HttpGet]
-        public Scan get(int ScanId)
+        public Scan Get(int ScanId)
         {
             Util utils = new Util();
             Scan myScan = new Scan(ScanId);
