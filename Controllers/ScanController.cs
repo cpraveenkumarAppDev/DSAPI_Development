@@ -22,6 +22,7 @@ namespace api.Controllers
             if (tbl.Rows.Count > 0)
             {
                 myScan.MetaData = tbl.Rows[0][0].ToString();
+                myScan.Processed = false;
                 //var data = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(tbl.Rows[0][0].ToString());
             }
             return myScan;
