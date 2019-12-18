@@ -21,31 +21,32 @@ namespace api.Controllers
         /// </summary>
         /// <param name="pc"></param>
         /// <returns></returns>
-        public HttpResponseMessage GetSWDocument(string pc)
+        public HttpResponseMessage GetSWDocuments(string pc)
         {
-            List<Uri> docLinks = new List<Uri>();
-            string tempLink;
             string SWDocType = ConfigurationManager.AppSettings["SWDocType"];
 
             using (var db = new DocushareEntities())
             {
                 //ian - SW group has inconsistent SWDoc_AppNumber conventions, so check for direct comparison as well as "Contains"
                 var dbItems = db.DSObject_table.Where(x => (x.SWDoc_AppNumber == pc || x.SWDoc_AppNumber.Contains(pc)) && x.Object_isDeleted == 0)
-                    .Select(x => new { x.handle_index, x.SWDoc_AppNumber, x.SWDoc_original_file_name})
-                    .ToList();
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo {
+                        Handle = x.handle_index.ToString(),
+                        FileIdentifier = x.SWDoc_AppNumber,
+                        FileName = x.SWDoc_original_file_name,
+                        DocType = SWDocType,
+                        ObjSummary = x.Object_summary,
+                        FileURL = DocushareUrl + SWDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.SWDoc_original_file_name)
+                    }).ToList();
 
                 if (dbItems.Count() > 0)
                 {
                     utils.WriteLog($"Surface Water Document AppNumber (Program-certificate): {pc}");
                     foreach (var item in dbItems)
                     {
-                        //url encode the original file name
-                        string temp = Uri.EscapeUriString(item.SWDoc_original_file_name);
-                        tempLink = $"{DocushareUrl}{SWDocType}-{item.handle_index}/{temp}";
-                        docLinks.Add(new Uri(tempLink));
-                        utils.WriteLog($"\tPC:{item.SWDoc_AppNumber}, handle_index:{item.handle_index}, originalName:{temp}");
+                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
                     }
-                    return Request.CreateResponse(HttpStatusCode.OK, docLinks);
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
                 }
                 else
                 {

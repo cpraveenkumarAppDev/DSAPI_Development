@@ -28,7 +28,6 @@ namespace api.Controllers
         public HttpResponseMessage GetSOCDocuments(string fileNumber)
         {
             List<Uri> docLinks = new List<Uri>();
-            string tempLink;
             string socDocType = "SOCDoc";
             using (var db = new DocushareEntities())
             {
@@ -36,7 +35,8 @@ namespace api.Controllers
                     .Where(x => x.SOCDoc_FileNumber == fileNumber && x.Object_isDeleted == 0)
                     .Select(x => new DsFileInfo {
                         Handle = x.handle_index.ToString(),
-                        DocType = socDocType, FileURL = DocushareUrl + socDocType + "-" + x.handle_index,
+                        DocType = socDocType,
+                        FileURL = DocushareUrl + socDocType + "-" + x.handle_index,
                         ObjSummary = x.Object_summary,
                         FileIdentifier = x.SOCDoc_FileNumber
                     }).ToList();

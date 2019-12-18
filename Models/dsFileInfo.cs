@@ -28,5 +28,15 @@ namespace api.Models
 
         }
 
+        public enum dsErrorCodes
+        {
+            ecSuccess = 0,
+            ecNoFilesFound = 1,
+            ecTooManyFilesFound = 2,
+            ecUnableToLock = 3,
+            ecUnableToUnlock = 4
+
+        }
+
     }
 }

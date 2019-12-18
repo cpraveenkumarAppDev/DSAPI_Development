@@ -127,7 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\armFolder.cs" />
-    <Compile Include="Models\dsFileInfo.cs" />
+    <Compile Include="Models\DsFileInfo.cs" />
     <Compile Include="Models\DSObject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

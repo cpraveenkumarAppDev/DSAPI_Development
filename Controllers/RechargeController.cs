@@ -25,25 +25,29 @@ namespace api.Controllers
         [HttpGet]
         public HttpResponseMessage GetRechargeDocuments(string pcc)
         {
-            List<Uri> docLinks = new List<Uri>();
-            string tempLink;
             string rechargeDocType = ConfigurationManager.AppSettings["RechargeDocType"];
 
             using (var db = new DocushareEntities())
             {
-                var dbItems = db.DSObject_table.Where(x => x.RechargeDoc_PCC == pcc && x.Object_isDeleted == 0).Select(x => new { x.RechargeDoc_PCC, x.handle_index, x.RechargeDoc_original_file_name });
+                var dbItems = db.DSObject_table
+                    .Where(x => x.RechargeDoc_PCC == pcc && x.Object_isDeleted == 0)
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo {
+                        FileIdentifier = x.RechargeDoc_PCC,
+                        Handle = x.handle_index.ToString(),
+                        FileName = x.RechargeDoc_original_file_name,
+                        DocType = rechargeDocType,
+                        ObjSummary = x.Object_summary,
+                        FileURL = DocushareUrl + rechargeDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.RechargeDoc_original_file_name)
+                    }).ToList();
                 if (dbItems.Count() > 0)
                 {
                     utils.WriteLog($"Recharge Document PCC: {pcc}");
                     foreach (var item in dbItems)
                     {
-                        //url encode the original file name
-                        string temp = Uri.EscapeUriString(item.RechargeDoc_original_file_name);
-                        tempLink = $"{DocushareUrl}{rechargeDocType}-{item.handle_index}/{temp}";
-                        docLinks.Add(new Uri(tempLink));
-                        utils.WriteLog($"\tPCC:{item.RechargeDoc_PCC}, handle_index:{item.handle_index}, originalName:{temp}");
+                        utils.WriteLog($"\tPCC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileName}");
                     }
-                    return Request.CreateResponse(HttpStatusCode.OK, docLinks);
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
                 }
                 else
                 {

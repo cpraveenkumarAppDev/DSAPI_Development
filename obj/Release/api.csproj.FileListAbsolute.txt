@@ -27,4 +27,3 @@ C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.XmlSerializers.dll
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Cors.dll
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.dll
 C:\Development\VisualStudio 2017\DSAPI\bin\System.Web.Http.Cors.xml
-C:\Development\VisualStudio 2017\DSAPI\obj\Release\api.csprojAssemblyReference.cache
