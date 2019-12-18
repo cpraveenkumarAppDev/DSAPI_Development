@@ -32,17 +32,18 @@ namespace api.Controllers
             string socDocType = "SOCDoc";
             using (var db = new DocushareEntities())
             {
-                var dbItems = db.DSObject_table.Where(x => x.SOCDoc_FileNumber == fileNumber && x.Object_isDeleted == 0).Select(x => new { x.SOCDoc_FileNumber, x.handle_index}).ToList();
+                List<DsFileInfo> dbItems = db.DSObject_table
+                    .Where(x => x.SOCDoc_FileNumber == fileNumber && x.Object_isDeleted == 0)
+                    .Select(x => new DsFileInfo {
+                        Handle = x.handle_index.ToString(),
+                        DocType = socDocType, FileURL = DocushareUrl + socDocType + "-" + x.handle_index,
+                        ObjSummary = x.Object_summary,
+                        FileIdentifier = x.SOCDoc_FileNumber
+                    }).ToList();
                 if(dbItems.Count() > 0)
                 {
-                    utils.WriteLog($"SOC fileNumber: {fileNumber}");
-                    foreach (var item in dbItems)
-                    {
-                        tempLink = $"{DocushareUrl}{socDocType}-{item.handle_index}";
-                        docLinks.Add(new Uri(tempLink));
-                        utils.WriteLog($"\t{item.SOCDoc_FileNumber}: {item.handle_index}");
-                    }
-                    return Request.CreateResponse(HttpStatusCode.OK, docLinks);
+                    utils.WriteLog($"SOC fileNumber {fileNumber}: {dbItems.Count()} records found");
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
                 }
                 else
                 {

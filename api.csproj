@@ -120,12 +120,14 @@
     <Compile Include="Controllers\armFolderController.cs" />
     <Compile Include="Controllers\RechargeController.cs" />
     <Compile Include="Controllers\SOCController.cs" />
+    <Compile Include="Controllers\SurfaceWaterController.cs" />
     <Compile Include="Controllers\WellRegDocController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\armFolder.cs" />
+    <Compile Include="Models\dsFileInfo.cs" />
     <Compile Include="Models\DSObject.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

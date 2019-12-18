@@ -61,11 +61,6 @@ namespace api.Controllers
             }
             return fileInfo;
         }
-        [HttpGet]
-        public string HelloWorld()
-        {
-            return "Hell world";
-        }
 
         private string getMetadata(Scan json, string dataKey)
         {
