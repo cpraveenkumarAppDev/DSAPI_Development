@@ -330,6 +330,10 @@ namespace api.Controllers
                 if (dbItems.Count() > 0)
                 {
                     utils.WriteLog($"WellRegDoc Registry ID {registryNum}: {dbItems.Count()} records found");
+                    foreach (var item in dbItems)
+                    {
+                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
+                    }
                     return Request.CreateResponse(HttpStatusCode.OK, dbItems);
                 }
                 else
