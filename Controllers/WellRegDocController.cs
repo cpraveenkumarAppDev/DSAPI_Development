@@ -20,8 +20,10 @@ namespace api.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WellRegDocController : ApiController
     {
-        #region private methods
+        readonly string DocushareUrl = ConfigurationManager.AppSettings["dsApiUrl"];
         Util utils = new Util();
+
+        #region private methods
         private dsFileInfo FindWellRegDoc(WellRegDoc myDoc)
         {
             dsFileInfo fileInfo = new dsFileInfo();
@@ -305,6 +307,37 @@ namespace api.Controllers
         public List<WellRegDoc> Location(string location)
         {
             return findWellsByLocation(location);
+        }
+
+        [HttpGet]
+        [ActionName("AllDocs")]
+        public HttpResponseMessage AllDocs(string registryNum)
+        {
+            string wellRegDocType = "WellRegDoc";
+            using (var db = new DocushareEntities())
+            {
+                List<DsFileInfo> dbItems = db.DSObject_table
+                    .Where(x => x.WellRegDoc_RegID == registryNum && x.Object_isDeleted == 0)
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo
+                    {
+                        Handle = x.handle_index.ToString(),
+                        DocType = wellRegDocType,
+                        FileURL = DocushareUrl + wellRegDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.WellRegDoc_original_file_name),
+                        ObjSummary = x.Object_summary,
+                        FileIdentifier = x.WellRegDoc_RegID
+                    }).ToList();
+                if (dbItems.Count() > 0)
+                {
+                    utils.WriteLog($"WellRegDoc Registry ID {registryNum}: {dbItems.Count()} records found");
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
+                }
+                else
+                {
+                    utils.WriteLog($"\tNo records found for {registryNum}");
+                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registryNum}");
+                }
+            }
         }
 
 
