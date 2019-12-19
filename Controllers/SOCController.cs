@@ -33,10 +33,11 @@ namespace api.Controllers
             {
                 List<DsFileInfo> dbItems = db.DSObject_table
                     .Where(x => x.SOCDoc_FileNumber == fileNumber && x.Object_isDeleted == 0)
+                    .AsEnumerable()
                     .Select(x => new DsFileInfo {
                         Handle = x.handle_index.ToString(),
                         DocType = socDocType,
-                        FileURL = DocushareUrl + socDocType + "-" + x.handle_index,
+                        FileURL = DocushareUrl + socDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.SOCDoc_original_file_name),
                         ObjSummary = x.Object_summary,
                         FileIdentifier = x.SOCDoc_FileNumber
                     }).ToList();
