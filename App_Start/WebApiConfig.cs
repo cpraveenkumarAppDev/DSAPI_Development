@@ -23,6 +23,13 @@ namespace api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Was going to change routing, but using routing attributes seems to work better without complete refactor of existing controllers
+            //config.Routes.MapHttpRoute(
+            //    name: "SecondaryRoute",
+            //    routeTemplate: "api/{controller}/{action}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
         }
     }
 }

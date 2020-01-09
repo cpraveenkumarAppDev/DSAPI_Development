@@ -375,5 +375,85 @@ namespace api.Controllers
             return result;
 
         }
+        #region wells35 Lookups
+        /// <summary>
+        /// Gets all docs where well35Doc_new or well35Doc_old equal RegId and are not deleted
+        /// </summary>
+        /// <param name="registry"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("GetWell35Docs")]
+        [Route("getwell35docs/{registry}")]
+        public HttpResponseMessage GetWell35Docs(string registry)
+        {
+            string well35Doc = "Well35Doc";
+            using (var db = new DocushareEntities())
+            {
+                //handle_class for Well35Doc is 22
+                var dbItems = db.DSObject_table.Where(x => (x.Well35Doc_New == registry || x.Well35Doc_Old.Replace("35-", "") == registry || x.Well35Doc_Old == registry) && x.Object_isDeleted == 0)
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo
+                    {
+                        Handle = x.handle_index.ToString(),
+                        FileIdentifier = x.Well35Doc_New == registry ? x.Well35Doc_New: x.Well35Doc_Old,
+                        FileName = x.Well35Doc_original_file_name,
+                        DocType = well35Doc,
+                        ObjSummary = x.Object_summary,
+                        FileURL = DocushareUrl + well35Doc + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.Well35Doc_original_file_name)
+                    }).ToList();
+
+                if (dbItems.Count() > 0)
+                {
+                    utils.WriteLog($"Well35 Document AppNumber (Program-certificate): {registry}");
+                    foreach (var item in dbItems)
+                    {
+                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
+                    }
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
+                }
+                else
+                {
+                    utils.WriteLog($"\tNo records found for {registry}");
+                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registry}");
+                }
+            }
+        }
+        /// <summary>
+        /// Legacy Lookup
+        /// </summary>
+        /// <param name="regid"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("findwell35regdoc")]
+        [Route("findwell35regdoc/{regid}")]
+        public HttpResponseMessage FindWell35RegDoc(string regid)
+        {
+            dsFileInfo fileInfo = new dsFileInfo();
+            //string query = "SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] WHERE ([Well35Doc_New] = '" + RegId + "' or [Well35Doc_Old] like '%" + RegId + "') and [Object_isDeleted] = 0";
+            string query = $"SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] " +
+                $"WHERE ([Well35Doc_New] = '{regid}' or replace([Well35Doc_Old],'35-','') = '{regid}' or Well35Doc_Old = '{regid}') and [Object_isDeleted] = 0";
+
+            DataTable TableX = utils.GetSQLDataTable(query);
+
+            if (TableX.Rows.Count == 1)
+            {
+                fileInfo.errorCode = dsErrorCodes.ecSuccess;
+                fileInfo.handle = TableX.Rows[0]["HANDLE_INDEX"].ToString();
+                fileInfo.docType = "Well35Doc";
+                fileInfo.fileName = TableX.Rows[0]["Well35Doc_original_file_name"].ToString();
+                fileInfo.fileURL = "http://infoshare.azwater.gov/docushare/dsweb/Get/" + fileInfo.docType + "-" + fileInfo.handle + "/" + fileInfo.fileName;
+            }
+            else
+            {
+                if (TableX.Rows.Count > 1)
+                    fileInfo.errorCode = dsErrorCodes.ecTooManyFilesFound;
+                else
+                    fileInfo.errorCode = dsErrorCodes.ecNoFilesFound;
+                fileInfo.handle = "";
+                fileInfo.fileURL = "";
+            }
+            return Request.CreateResponse<dsFileInfo>(HttpStatusCode.OK, fileInfo);
+        }
+        #endregion
     }
 }
