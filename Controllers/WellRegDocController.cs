@@ -295,6 +295,7 @@ namespace api.Controllers
         //------------------------------------------------------------------------------------------------------------   Main Code
         //http://localhost:24813/api/WellRegDoc/?regId=1
         [HttpGet]
+        [ActionName("Get")]
         public WellRegDoc Get(string regId)
         {
             WellRegDoc docInfo = new WellRegDoc(regId);
@@ -382,8 +383,7 @@ namespace api.Controllers
         /// <param name="registry"></param>
         /// <returns></returns>
         [HttpGet]
-        [ActionName("GetWell35Docs")]
-        [Route("getwell35docs/{registry}")]
+        [ActionName("getwell35docs")]
         public HttpResponseMessage GetWell35Docs(string registry)
         {
             string well35Doc = "Well35Doc";
@@ -425,7 +425,6 @@ namespace api.Controllers
         /// <returns></returns>
         [HttpGet]
         [ActionName("findwell35regdoc")]
-        [Route("findwell35regdoc/{regid}")]
         public HttpResponseMessage FindWell35RegDoc(string regid)
         {
             dsFileInfo fileInfo = new dsFileInfo();

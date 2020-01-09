@@ -10,13 +10,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/api.dll">
-      <publishTime>01/09/2020 10:39:45</publishTime>
+      <publishTime>01/09/2020 11:20:47</publishTime>
     </File>
     <File Include="bin/api.pdb">
-      <publishTime>01/09/2020 10:39:45</publishTime>
+      <publishTime>01/09/2020 11:20:47</publishTime>
     </File>
     <File Include="bin/api.XmlSerializers.dll">
-      <publishTime>01/09/2020 10:39:45</publishTime>
+      <publishTime>01/09/2020 11:20:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
@@ -205,7 +205,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2018 14:54:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/09/2020 10:39:45</publishTime>
+      <publishTime>01/09/2020 11:20:54</publishTime>
     </File>
   </ItemGroup>
 </Project>
