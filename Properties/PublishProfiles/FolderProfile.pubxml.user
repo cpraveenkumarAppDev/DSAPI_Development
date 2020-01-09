@@ -10,13 +10,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/api.dll">
-      <publishTime>12/12/2019 11:00:06</publishTime>
+      <publishTime>01/09/2020 10:39:45</publishTime>
     </File>
     <File Include="bin/api.pdb">
-      <publishTime>12/12/2019 11:00:06</publishTime>
+      <publishTime>01/09/2020 10:39:45</publishTime>
     </File>
     <File Include="bin/api.XmlSerializers.dll">
-      <publishTime>12/12/2019 11:00:07</publishTime>
+      <publishTime>01/09/2020 10:39:45</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
@@ -181,10 +181,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2015 20:36:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/28/2015 04:02:42</publishTime>
+      <publishTime>11/28/2018 13:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>11/28/2018 12:58:44</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>11/28/2018 13:01:26</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/28/2015 04:02:54</publishTime>
+      <publishTime>11/28/2018 13:01:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>01/28/2015 04:03:46</publishTime>
@@ -193,13 +199,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2018 14:43:37</publishTime>
     </File>
     <File Include="Models/DSObject.edmx.diagram">
-      <publishTime>12/12/2019 08:40:47</publishTime>
+      <publishTime>01/09/2020 09:41:01</publishTime>
     </File>
     <File Include="Web References/intranet/Reference.map">
       <publishTime>02/16/2018 14:54:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/12/2019 11:00:07</publishTime>
+      <publishTime>01/09/2020 10:39:45</publishTime>
     </File>
   </ItemGroup>
 </Project>

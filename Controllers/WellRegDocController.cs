@@ -383,6 +383,7 @@ namespace api.Controllers
         /// <returns></returns>
         [HttpGet]
         [ActionName("GetWell35Docs")]
+        [Route("getwell35docs/{registry}")]
         public HttpResponseMessage GetWell35Docs(string registry)
         {
             string well35Doc = "Well35Doc";
@@ -424,6 +425,7 @@ namespace api.Controllers
         /// <returns></returns>
         [HttpGet]
         [ActionName("findwell35regdoc")]
+        [Route("findwell35regdoc/{regid}")]
         public HttpResponseMessage FindWell35RegDoc(string regid)
         {
             dsFileInfo fileInfo = new dsFileInfo();
