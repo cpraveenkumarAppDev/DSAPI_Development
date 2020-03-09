@@ -23,6 +23,168 @@ namespace api.Controllers
         readonly string DocushareUrl = ConfigurationManager.AppSettings["dsApiUrl"];
         Util utils = new Util();
 
+        //http://localhost:24813/api/WellRegDoc/Get?regId=1
+        [HttpGet]
+        [ActionName("Get")]
+        public WellRegDoc Get(string regId)
+        {
+            WellRegDoc docInfo = new WellRegDoc(regId);
+            dsFileInfo info = FindWellRegDoc(docInfo);
+            return docInfo;
+        }
+
+        [HttpGet]
+        [ActionName("ListByLocation")] //api call http://localhost:52183/api/dstools/ListByLocation?location=blablabla
+        public List<WellRegDoc> Location(string location)
+        {
+            return findWellsByLocation(location);
+        }
+
+        [HttpGet]
+        [ActionName("AllDocs")]
+        public HttpResponseMessage AllDocs(string registryNum)
+        {
+            string wellRegDocType = "WellRegDoc";
+            using (var db = new DocushareEntities())
+            {
+                List<DsFileInfo> dbItems = db.DSObject_table
+                    .Where(x => x.WellRegDoc_RegID == registryNum && x.Object_isDeleted == 0)
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo
+                    {
+                        Handle = x.handle_index.ToString(),
+                        DocType = wellRegDocType,
+                        FileURL = DocushareUrl + wellRegDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.WellRegDoc_original_file_name),
+                        ObjSummary = x.Object_summary,
+                        FileIdentifier = x.WellRegDoc_RegID
+                    }).ToList();
+                if (dbItems.Count() > 0)
+                {
+                    utils.WriteLog($"WellRegDoc Registry ID {registryNum}: {dbItems.Count()} records found");
+                    foreach (var item in dbItems)
+                    {
+                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
+                    }
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
+                }
+                else
+                {
+                    utils.WriteLog($"\tNo records found for {registryNum}");
+                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registryNum}");
+                }
+            }
+        }
+
+
+        [HttpPost]
+        public string Post([FromBody] Scan myData)
+        {
+            utils.WriteLog("Post: id=" + myData.Id + " Metadata: " + myData.MetaData);
+            string result = "";
+            try
+            {
+                WellRegDoc docInfo = new WellRegDoc(getMetadata(myData, "WellId"));
+                dsFileInfo info = FindWellRegDoc(docInfo);
+                if (info.errorCode == dsErrorCodes.ecSuccess)
+                {
+                    //update file
+                    utils.WriteLog("Update file: " + myData.Id);
+                    result = uploadExistingWellRegDoc(info, myData);
+                }
+                if (info.errorCode == dsErrorCodes.ecNoFilesFound)
+                {
+                    result = uploadNewWellRegDoc(myData);
+                    utils.WriteLog("New file: " + myData.Id);
+                }
+                if (info.errorCode == dsErrorCodes.ecTooManyFilesFound)
+                    result = "More than one file was found in docushare.";
+            }
+            catch (Exception e)
+            {
+                result = e.Message;
+            }
+            return result;
+
+        }
+        #region wells35 Lookups
+        /// <summary>
+        /// Gets all docs where well35Doc_new or well35Doc_old equal RegId and are not deleted
+        /// </summary>
+        /// <param name="registry"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("getwell35docs")]
+        public HttpResponseMessage GetWell35Docs(string registry)
+        {
+            string well35Doc = "Well35Doc";
+            using (var db = new DocushareEntities())
+            {
+                //handle_class for Well35Doc is 22
+                var dbItems = db.DSObject_table.Where(x => (x.Well35Doc_New == registry || x.Well35Doc_Old.Replace("35-", "") == registry || x.Well35Doc_Old == registry) && x.Object_isDeleted == 0)
+                    .AsEnumerable()
+                    .Select(x => new DsFileInfo
+                    {
+                        Handle = x.handle_index.ToString(),
+                        FileIdentifier = x.Well35Doc_New == registry ? x.Well35Doc_New: x.Well35Doc_Old,
+                        FileName = x.Well35Doc_original_file_name,
+                        DocType = well35Doc,
+                        ObjSummary = x.Object_summary,
+                        FileURL = DocushareUrl + well35Doc + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.Well35Doc_original_file_name)
+                    }).ToList();
+
+                if (dbItems.Count() > 0)
+                {
+                    utils.WriteLog($"Well35 Document AppNumber (Program-certificate): {registry}");
+                    foreach (var item in dbItems)
+                    {
+                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
+                    }
+                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
+                }
+                else
+                {
+                    utils.WriteLog($"\tNo records found for {registry}");
+                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registry}");
+                }
+            }
+        }
+        /// <summary>
+        /// Legacy Lookup
+        /// </summary>
+        /// <param name="regid"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionName("findwell35regdoc")]
+        public HttpResponseMessage FindWell35RegDoc(string regid)
+        {
+            dsFileInfo fileInfo = new dsFileInfo();
+            //string query = "SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] WHERE ([Well35Doc_New] = '" + RegId + "' or [Well35Doc_Old] like '%" + RegId + "') and [Object_isDeleted] = 0";
+            string query = $"SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] " +
+                $"WHERE ([Well35Doc_New] = '{regid}' or replace([Well35Doc_Old],'35-','') = '{regid}' or Well35Doc_Old = '{regid}') and [Object_isDeleted] = 0";
+
+            DataTable TableX = utils.GetSQLDataTable(query);
+
+            if (TableX.Rows.Count == 1)
+            {
+                fileInfo.errorCode = dsErrorCodes.ecSuccess;
+                fileInfo.handle = TableX.Rows[0]["HANDLE_INDEX"].ToString();
+                fileInfo.docType = "Well35Doc";
+                fileInfo.fileName = TableX.Rows[0]["Well35Doc_original_file_name"].ToString();
+                fileInfo.fileURL = "http://infoshare.azwater.gov/docushare/dsweb/Get/" + fileInfo.docType + "-" + fileInfo.handle + "/" + fileInfo.fileName;
+            }
+            else
+            {
+                if (TableX.Rows.Count > 1)
+                    fileInfo.errorCode = dsErrorCodes.ecTooManyFilesFound;
+                else
+                    fileInfo.errorCode = dsErrorCodes.ecNoFilesFound;
+                fileInfo.handle = "";
+                fileInfo.fileURL = "";
+            }
+            return Request.CreateResponse<dsFileInfo>(HttpStatusCode.OK, fileInfo);
+        }
+        #endregion
+
         #region private methods
         private dsFileInfo FindWellRegDoc(WellRegDoc myDoc)
         {
@@ -290,169 +452,6 @@ namespace api.Controllers
             return strDocHandle;
         }
 
-        #endregion
-
-        //------------------------------------------------------------------------------------------------------------   Main Code
-        //http://localhost:24813/api/WellRegDoc/?regId=1
-        [HttpGet]
-        [ActionName("Get")]
-        public WellRegDoc Get(string regId)
-        {
-            WellRegDoc docInfo = new WellRegDoc(regId);
-            dsFileInfo info = FindWellRegDoc(docInfo);
-            return docInfo;
-        }
-
-        [HttpGet]
-        [ActionName("ListByLocation")] //api call http://localhost:52183/api/dstools/Location?location=blablabla
-        public List<WellRegDoc> Location(string location)
-        {
-            return findWellsByLocation(location);
-        }
-
-        [HttpGet]
-        [ActionName("AllDocs")]
-        public HttpResponseMessage AllDocs(string registryNum)
-        {
-            string wellRegDocType = "WellRegDoc";
-            using (var db = new DocushareEntities())
-            {
-                List<DsFileInfo> dbItems = db.DSObject_table
-                    .Where(x => x.WellRegDoc_RegID == registryNum && x.Object_isDeleted == 0)
-                    .AsEnumerable()
-                    .Select(x => new DsFileInfo
-                    {
-                        Handle = x.handle_index.ToString(),
-                        DocType = wellRegDocType,
-                        FileURL = DocushareUrl + wellRegDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.WellRegDoc_original_file_name),
-                        ObjSummary = x.Object_summary,
-                        FileIdentifier = x.WellRegDoc_RegID
-                    }).ToList();
-                if (dbItems.Count() > 0)
-                {
-                    utils.WriteLog($"WellRegDoc Registry ID {registryNum}: {dbItems.Count()} records found");
-                    foreach (var item in dbItems)
-                    {
-                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
-                    }
-                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
-                }
-                else
-                {
-                    utils.WriteLog($"\tNo records found for {registryNum}");
-                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registryNum}");
-                }
-            }
-        }
-
-
-        [HttpPost]
-        public string Post([FromBody] Scan myData)
-        {
-            utils.WriteLog("Post: id=" + myData.Id + " Metadata: " + myData.MetaData);
-            string result = "";
-            try
-            {
-                WellRegDoc docInfo = new WellRegDoc(getMetadata(myData, "WellId"));
-                dsFileInfo info = FindWellRegDoc(docInfo);
-                if (info.errorCode == dsErrorCodes.ecSuccess)
-                {
-                    //update file
-                    utils.WriteLog("Update file: " + myData.Id);
-                    result = uploadExistingWellRegDoc(info, myData);
-                }
-                if (info.errorCode == dsErrorCodes.ecNoFilesFound)
-                {
-                    result = uploadNewWellRegDoc(myData);
-                    utils.WriteLog("New file: " + myData.Id);
-                }
-                if (info.errorCode == dsErrorCodes.ecTooManyFilesFound)
-                    result = "More than one file was found in docushare.";
-            }
-            catch (Exception e)
-            {
-                result = e.Message;
-            }
-            return result;
-
-        }
-        #region wells35 Lookups
-        /// <summary>
-        /// Gets all docs where well35Doc_new or well35Doc_old equal RegId and are not deleted
-        /// </summary>
-        /// <param name="registry"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [ActionName("getwell35docs")]
-        public HttpResponseMessage GetWell35Docs(string registry)
-        {
-            string well35Doc = "Well35Doc";
-            using (var db = new DocushareEntities())
-            {
-                //handle_class for Well35Doc is 22
-                var dbItems = db.DSObject_table.Where(x => (x.Well35Doc_New == registry || x.Well35Doc_Old.Replace("35-", "") == registry || x.Well35Doc_Old == registry) && x.Object_isDeleted == 0)
-                    .AsEnumerable()
-                    .Select(x => new DsFileInfo
-                    {
-                        Handle = x.handle_index.ToString(),
-                        FileIdentifier = x.Well35Doc_New == registry ? x.Well35Doc_New: x.Well35Doc_Old,
-                        FileName = x.Well35Doc_original_file_name,
-                        DocType = well35Doc,
-                        ObjSummary = x.Object_summary,
-                        FileURL = DocushareUrl + well35Doc + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.Well35Doc_original_file_name)
-                    }).ToList();
-
-                if (dbItems.Count() > 0)
-                {
-                    utils.WriteLog($"Well35 Document AppNumber (Program-certificate): {registry}");
-                    foreach (var item in dbItems)
-                    {
-                        utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
-                    }
-                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
-                }
-                else
-                {
-                    utils.WriteLog($"\tNo records found for {registry}");
-                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {registry}");
-                }
-            }
-        }
-        /// <summary>
-        /// Legacy Lookup
-        /// </summary>
-        /// <param name="regid"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [ActionName("findwell35regdoc")]
-        public HttpResponseMessage FindWell35RegDoc(string regid)
-        {
-            dsFileInfo fileInfo = new dsFileInfo();
-            //string query = "SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] WHERE ([Well35Doc_New] = '" + RegId + "' or [Well35Doc_Old] like '%" + RegId + "') and [Object_isDeleted] = 0";
-            string query = $"SELECT [Well35Doc_New], [Well35Doc_Old], [Well35Doc_original_file_name], [handle_index] FROM [DSObject_table] " +
-                $"WHERE ([Well35Doc_New] = '{regid}' or replace([Well35Doc_Old],'35-','') = '{regid}' or Well35Doc_Old = '{regid}') and [Object_isDeleted] = 0";
-
-            DataTable TableX = utils.GetSQLDataTable(query);
-
-            if (TableX.Rows.Count == 1)
-            {
-                fileInfo.errorCode = dsErrorCodes.ecSuccess;
-                fileInfo.handle = TableX.Rows[0]["HANDLE_INDEX"].ToString();
-                fileInfo.docType = "Well35Doc";
-                fileInfo.fileName = TableX.Rows[0]["Well35Doc_original_file_name"].ToString();
-                fileInfo.fileURL = "http://infoshare.azwater.gov/docushare/dsweb/Get/" + fileInfo.docType + "-" + fileInfo.handle + "/" + fileInfo.fileName;
-            }
-            else
-            {
-                if (TableX.Rows.Count > 1)
-                    fileInfo.errorCode = dsErrorCodes.ecTooManyFilesFound;
-                else
-                    fileInfo.errorCode = dsErrorCodes.ecNoFilesFound;
-                fileInfo.handle = "";
-                fileInfo.fileURL = "";
-            }
-            return Request.CreateResponse<dsFileInfo>(HttpStatusCode.OK, fileInfo);
-        }
         #endregion
     }
 }
