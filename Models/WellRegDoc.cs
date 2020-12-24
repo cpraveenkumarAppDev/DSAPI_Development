@@ -13,6 +13,9 @@ namespace api.Models
 
         public WellRegDoc(string registryId)
         {
+            //Well registry documents are denoted with a program number "55-" in their authority number.
+            //This function should respect that and check if the provided registryId has the preceding 55-
+            //otherwise client apps have to take on that work
             RegistryId = registryId;
         }
 
