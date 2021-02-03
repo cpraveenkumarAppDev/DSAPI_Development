@@ -6,23 +6,24 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace api.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/ama")]
-    public class AmaController : ApiController
+    [RoutePrefix("api/cws")]
+    public class CWSController : ApiController
     {
         readonly string DocushareUrl = ConfigurationManager.AppSettings["dsApiUrl"];
         readonly Util utils = new Util();
 
         [HttpGet, Route("doc/{pcc}")]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public HttpResponseMessage GetAMADocuments(string pcc)
+        public IHttpActionResult GetCWSDocuments(string pcc)
         {
-            if(pcc.Length == 12)
+            if (pcc.Length == 12)
             {
                 pcc = pcc.Substring(0, 2) + "-" + pcc.Substring(2, 6) + "." + pcc.Substring(8);
             }
@@ -31,33 +32,33 @@ namespace api.Controllers
                 var a = 1;
             }
             List<Uri> docLinks = new List<Uri>();
-            string amaDocType = "GWDoc";
+            string amaDocType = "CWSDoc";
             using (var db = new DocushareEntities())
             {
                 List<DsFileInfo> dbItems = db.DSObject_table
-                    .Where(x => x.GWDoc_PCC == pcc && x.Object_isDeleted == 0)
+                    .Where(x => x.CWSDoc_PCC == pcc && x.Object_isDeleted == 0)
                     .AsEnumerable()
                     .Select(x => new DsFileInfo
                     {
                         Handle = x.handle_index.ToString(),
                         DocType = amaDocType,
-                        FileURL = DocushareUrl + amaDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.GWDoc_original_file_name),
+                        FileURL = DocushareUrl + amaDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.CWSDoc_original_file_name),
                         ObjSummary = x.Object_summary,
-                        FileIdentifier = x.GWDoc_PCC
+                        FileIdentifier = x.CWSDoc_PCC
                     }).ToList();
                 if (dbItems.Count() > 0)
                 {
-                    utils.WriteLog($"AMA fileNumber {pcc}: {dbItems.Count()} records found");
+                    utils.WriteLog($"CWS fileNumber {pcc}: {dbItems.Count()} records found");
                     foreach (var item in dbItems)
                     {
                         utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
                     }
-                    return Request.CreateResponse(HttpStatusCode.OK, dbItems);
+                    return Ok(dbItems);
                 }
                 else
                 {
                     utils.WriteLog($"\tNo records found for {pcc}");
-                    return Request.CreateResponse(HttpStatusCode.OK, $"No records found for {pcc}");
+                    return Ok($"No records found for {pcc}");
                 }
 
             }
@@ -65,7 +66,7 @@ namespace api.Controllers
 
         [HttpGet, Route("doc/{pcc}/{year}")]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IHttpActionResult GetAMADocumentByReportYear(string pcc, string year)
+        public IHttpActionResult GetCWSDocumentsByReportYear(string pcc, string year)
         {
             if (pcc.Length == 12)
             {
@@ -73,26 +74,26 @@ namespace api.Controllers
             }
             else
             {
-                return BadRequest($"PCC: {pcc} format incorrect");
+                var a = 1;
             }
             List<Uri> docLinks = new List<Uri>();
-            string amaDocType = "GWDoc";
+            string amaDocType = "CWSDoc";
             using (var db = new DocushareEntities())
             {
                 List<DsFileInfo> dbItems = db.DSObject_table
-                    .Where(x => x.GWDoc_PCC == pcc && x.Object_isDeleted == 0 && x.GWDoc_Year == year)
+                    .Where(x => x.CWSDoc_PCC == pcc && x.Object_isDeleted == 0 && x.CWSDoc_ARYear == year)
                     .AsEnumerable()
                     .Select(x => new DsFileInfo
                     {
                         Handle = x.handle_index.ToString(),
                         DocType = amaDocType,
-                        FileURL = DocushareUrl + amaDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.GWDoc_original_file_name),
+                        FileURL = DocushareUrl + amaDocType + "-" + x.handle_index + "/" + Uri.EscapeUriString(x.CWSDoc_original_file_name),
                         ObjSummary = x.Object_summary,
-                        FileIdentifier = x.GWDoc_PCC
+                        FileIdentifier = x.CWSDoc_PCC
                     }).ToList();
                 if (dbItems.Count() > 0)
                 {
-                    utils.WriteLog($"AMA fileNumber {pcc}: {dbItems.Count()} records found");
+                    utils.WriteLog($"CWS fileNumber {pcc}: {dbItems.Count()} records found");
                     foreach (var item in dbItems)
                     {
                         utils.WriteLog($"\tPC:{item.FileIdentifier}, handle_index:{item.Handle}, originalName:{item.FileURL}");
