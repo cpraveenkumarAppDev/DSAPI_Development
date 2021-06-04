@@ -177,6 +177,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Readme.md" />
     <None Include="Web References\intranet\IReportServiceservice.wsdl" />
     <Content Include="Web References\intranet\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
