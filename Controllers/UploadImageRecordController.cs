@@ -314,7 +314,7 @@ namespace api.Controllers
 
             try
             {
-                httpWebRequest = (HttpWebRequest)WebRequest.Create(DocuShareURL + "dsweb/LOCK/" + request.DocumentType.ToString() + "-" + fileInfo.handle);
+                httpWebRequest = (HttpWebRequest)WebRequest.Create(DocuShareURL + "dsweb/LOCK/" + request.DocumentType.ToString() + "-" + request.Handle);
 
                 //The HTTP header information remains fairly consistant
                 httpWebRequest.ContentType = "text/xml";
