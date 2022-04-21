@@ -14,6 +14,8 @@ namespace api.Models
         public string ObjSummary { get; set; }
         public string FileIdentifier { get; set; }
 
+        public string Location { get; set; }
+
         public DsFileInfo(string handle, string docType, string fileUrl, string objSummary, string fileID)
         {
             this.Handle = handle;
